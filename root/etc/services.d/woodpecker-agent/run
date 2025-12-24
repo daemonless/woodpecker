@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Load environment variables
+if [ -f /run/s6/container-environment/all_envs ]; then
+    . /run/s6/container-environment/all_envs
+fi
+
+# Only run if WOODPECKER_AGENT_ENABLE is set to true
+if [ "${WOODPECKER_AGENT_ENABLE}" != "true" ]; then
+    echo "Woodpecker Agent disabled."
+    exit 0
+fi
+
+echo "Starting Woodpecker Agent..."
+exec /usr/local/bin/s6-setuidgid bsd /usr/local/bin/woodpecker-agent 2>&1

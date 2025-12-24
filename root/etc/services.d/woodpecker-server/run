@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Load environment variables
+if [ -f /run/s6/container-environment/all_envs ]; then
+    . /run/s6/container-environment/all_envs
+fi
+
+# Only run if WOODPECKER_SERVER_ENABLE is set to true
+if [ "${WOODPECKER_SERVER_ENABLE}" != "true" ]; then
+    echo "Woodpecker Server disabled."
+    exit 0
+fi
+
+echo "Starting Woodpecker Server..."
+export HOME=/var/lib/woodpecker
+export WOODPECKER_SERVER_ADDR=:8000
+
+# Signal readiness when the port is responsive
+s6-ready-when fetch -qo /dev/null http://localhost:8000/healthz
+
+cd /config
+exec /usr/local/bin/s6-setuidgid bsd /usr/local/bin/woodpecker-server

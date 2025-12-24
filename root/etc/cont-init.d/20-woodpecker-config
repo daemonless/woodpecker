@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Ensure storage directories exist
+mkdir -p /var/lib/woodpecker
+
+# Handle ownership if PUID/PGID are provided
+if [ -n "$PUID" ] && [ "$PUID" != "1000" ]; then
+    usermod -u "$PUID" bsd
+fi
+
+if [ -n "$PGID" ] && [ "$PGID" != "1000" ]; then
+    groupmod -g "$PGID" bsd
+fi
+
+chown -R bsd:bsd /var/lib/woodpecker
