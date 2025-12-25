@@ -34,7 +34,7 @@ ARG VERSION=v3.12.0
 
 ARG FREEBSD_ARCH=amd64
 ARG PACKAGES="ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep"
-LABEL org.opencontainers.image.title="woodpecker" \
+LABEL org.opencontainers.image.title="Woodpecker" \
     org.opencontainers.image.description="Woodpecker CI server and agent" \
     org.opencontainers.image.vendor="daemonless" \
     io.daemonless.category="Infrastructure" \
