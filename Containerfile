@@ -33,12 +33,17 @@ FROM ghcr.io/daemonless/base:15
 ARG VERSION=v3.12.0
 
 ARG FREEBSD_ARCH=amd64
+ARG PACKAGES="ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep"
 LABEL org.opencontainers.image.title="woodpecker" \
-      org.opencontainers.image.description="Woodpecker CI server and agent" \
-      org.opencontainers.image.vendor="daemonless"
+    org.opencontainers.image.description="Woodpecker CI server and agent" \
+    org.opencontainers.image.vendor="daemonless" \
+    io.daemonless.category="Infrastructure" \
+    io.daemonless.upstream-mode="github" \
+    io.daemonless.upstream-repo="woodpecker-ci/woodpecker" \
+    io.daemonless.packages="${PACKAGES}"
 
 # Runtime and Build dependencies
-RUN pkg update && pkg install -y ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep
+RUN pkg update && pkg install -y ${PACKAGES}
 
 # Woodpecker needs a writable HOME for some operations
 RUN pw usermod bsd -d /var/lib/woodpecker
