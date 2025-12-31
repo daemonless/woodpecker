@@ -36,6 +36,9 @@ ARG FREEBSD_ARCH=amd64
 ARG PACKAGES="ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep"
 ARG UPSTREAM_URL="https://api.github.com/repos/woodpecker-ci/woodpecker/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
+ARG HEALTHCHECK_ENDPOINT="http://localhost:8000/healthz"
+
+ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 LABEL org.opencontainers.image.title="Woodpecker" \
     org.opencontainers.image.description="Woodpecker CI server and agent" \
@@ -43,6 +46,7 @@ LABEL org.opencontainers.image.title="Woodpecker" \
     io.daemonless.category="Infrastructure" \
     io.daemonless.upstream-url="${UPSTREAM_URL}" \
     io.daemonless.upstream-jq="${UPSTREAM_JQ}" \
+    io.daemonless.healthcheck-url="${HEALTHCHECK_ENDPOINT}" \
     io.daemonless.packages="${PACKAGES}"
 
 # Runtime and Build dependencies
