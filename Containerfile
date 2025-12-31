@@ -34,12 +34,15 @@ ARG VERSION=v3.12.0
 
 ARG FREEBSD_ARCH=amd64
 ARG PACKAGES="ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep"
+ARG UPSTREAM_URL="https://api.github.com/repos/woodpecker-ci/woodpecker/releases/latest"
+ARG UPSTREAM_SED="s/.*\"tag_name\":\"\\([^\"]*\\)\".*/\\1/p"
+
 LABEL org.opencontainers.image.title="Woodpecker" \
     org.opencontainers.image.description="Woodpecker CI server and agent" \
     org.opencontainers.image.vendor="daemonless" \
     io.daemonless.category="Infrastructure" \
-    io.daemonless.upstream-mode="github" \
-    io.daemonless.upstream-repo="woodpecker-ci/woodpecker" \
+    io.daemonless.upstream-url="${UPSTREAM_URL}" \
+    io.daemonless.upstream-sed="${UPSTREAM_SED}" \
     io.daemonless.packages="${PACKAGES}"
 
 # Runtime and Build dependencies
