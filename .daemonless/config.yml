@@ -1,0 +1,4 @@
+icon: ':material-hammer:'
+cit:
+  mode: port
+  port: 8000
