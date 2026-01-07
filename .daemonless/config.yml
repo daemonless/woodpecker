@@ -1,4 +1,4 @@
 icon: ':material-hammer:'
 cit:
-  mode: port
+  mode: screenshot
   port: 8000
