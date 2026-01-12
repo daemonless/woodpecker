@@ -36,22 +36,33 @@ ARG VERSION=v3.12.0
 ARG PACKAGES="ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep"
 ARG UPSTREAM_URL="https://api.github.com/repos/woodpecker-ci/woodpecker/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
+{%- if ports %}
+ARG HEALTHCHECK_ENDPOINT="http://localhost:{{ ports[0].port }}/healthz"
+{%- else %}
 ARG HEALTHCHECK_ENDPOINT="http://localhost:8000/healthz"
+{%- endif %}
 
 ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 # --- Metadata (Injected by Generator) ---
-LABEL org.opencontainers.image.title="Woodpecker CI" \
-      org.opencontainers.image.description="Woodpecker CI server and agent on FreeBSD." \
-      org.opencontainers.image.source="https://github.com/daemonless/woodpecker" \
-      org.opencontainers.image.url="https://woodpecker-ci.org/" \
+LABEL org.opencontainers.image.title="{{ title }}" \
+      org.opencontainers.image.description="{{ description }}" \
+      org.opencontainers.image.source="{{ repo_url }}" \
+      org.opencontainers.image.url="{{ web_url }}" \
       org.opencontainers.image.documentation="https://woodpecker-ci.org/docs/intro" \
       org.opencontainers.image.licenses="BSD-2-Clause" \
       org.opencontainers.image.vendor="daemonless" \
       org.opencontainers.image.authors="daemonless" \
-      io.daemonless.category="Infrastructure" \
-      io.daemonless.port="8000" \
-      io.daemonless.volumes="/config" \
+      io.daemonless.category="{{ category }}" \
+{%- if ports %}
+      io.daemonless.port="{{ ports[0].port }}" \
+{%- endif %}
+{%- if volumes %}
+      io.daemonless.volumes="{{ volumes | map(attribute='path') | join(',') }}" \
+{%- endif %}
+{%- if mlock %}
+      org.freebsd.jail.allow.mlock="required" \
+{%- endif %}
       io.daemonless.arch="${FREEBSD_ARCH}" \
       io.daemonless.upstream-url="${UPSTREAM_URL}" \
       io.daemonless.upstream-jq="${UPSTREAM_JQ}" \
@@ -80,7 +91,11 @@ COPY root/ /
 RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* 2>/dev/null || true
 
 # --- Expose (Injected by Generator) ---
-EXPOSE 8000 9000
+{%- if ports %}
+EXPOSE {{ ports | map(attribute='port') | join(' ') }}
+{%- endif %}
 
 # --- Volumes (Injected by Generator) ---
-VOLUME /config
+{%- if volumes %}
+VOLUME {{ volumes | map(attribute='path') | join(' ') }}
+{%- endif %}

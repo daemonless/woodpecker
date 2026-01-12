@@ -12,7 +12,7 @@ if [ "${WOODPECKER_SERVER_ENABLE}" != "true" ]; then
 fi
 
 echo "Starting Woodpecker Server..."
-export HOME=/var/lib/woodpecker
+export HOME=/config
 export WOODPECKER_SERVER_ADDR=:8000
 
 # Signal readiness when the port is responsive

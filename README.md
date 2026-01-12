@@ -1,133 +1,109 @@
-# woodpecker
+# Woodpecker CI
 
-Continuous Integration (CI) server and agent.
+Woodpecker CI server and agent on FreeBSD.
 
-## Environment Variables
+| | |
+|---|---|
+| **Port** | 8000 |
+| **Registry** | `ghcr.io/daemonless/woodpecker` |
+| **Source** | [https://github.com/woodpecker-ci/woodpecker](https://github.com/woodpecker-ci/woodpecker) |
+| **Website** | [https://woodpecker-ci.org/](https://woodpecker-ci.org/) |
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `PUID` | User ID for the application process | `1000` |
-| `PGID` | Group ID for the application process | `1000` |
-| `TZ` | Timezone for the container | `UTC` |
-| `S6_LOG_ENABLE` | Enable/Disable file logging | `1` |
-| `S6_LOG_MAX_SIZE` | Max size per log file (bytes) | `1048576` |
-| `S6_LOG_MAX_FILES` | Number of rotated log files to keep | `10` |
+## Deployment
 
-## Logging
-
-This image uses `s6-log` for internal log rotation.
-- **System Logs**: Captured from console and stored at `/config/logs/daemonless/woodpecker/`.
-- **Application Logs**: Managed by the app and typically found in `/config/logs/`.
-- **Podman Logs**: Output is mirrored to the console, so `podman logs` still works.
-
-## Quick Start (Server)
-
-```bash
-podman run -d --name woodpecker-server \
-  -p 8000:8000 -p 9000:9000 \
-  -e PUID=1000 -e PGID=1000 \
-  -e WOODPECKER_SERVER_ENABLE=true \
-  -e WOODPECKER_GITEA=true \
-  -e WOODPECKER_GITEA_URL=https://gitea.example.com \
-  -e WOODPECKER_GITEA_CLIENT=your_client_id \
-  -e WOODPECKER_GITEA_SECRET=your_client_secret \
-  -e WOODPECKER_AGENT_SECRET=shared_secret \
-  -v /path/to/data:/var/lib/woodpecker \
-  ghcr.io/daemonless/woodpecker:latest
-```
-
-Access at: http://localhost:8000
-
-## Quick Start (Agent)
-
-```bash
-podman run -d --name woodpecker-agent \
-  -e PUID=1000 -e PGID=1000 \
-  -e WOODPECKER_AGENT_ENABLE=true \
-  -e WOODPECKER_SERVER=woodpecker-server:9000 \
-  -e WOODPECKER_AGENT_SECRET=shared_secret \
-  -v /var/run/podman/podman.sock:/var/run/podman.sock \
-  ghcr.io/daemonless/woodpecker:latest
-```
-
-## podman-compose
+### Podman Compose
 
 ```yaml
 services:
-  woodpecker-server:
+  woodpecker:
     image: ghcr.io/daemonless/woodpecker:latest
-    container_name: woodpecker-server
+    container_name: woodpecker
     environment:
+      - WOODPECKER_SERVER_ENABLE=true
+      - WOODPECKER_DATABASE_DRIVER=sqlite3
+      - WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
+      - WOODPECKER_AGENT_SECRET=agent-secret
       - PUID=1000
       - PGID=1000
-      - TZ=America/New_York
-      - WOODPECKER_SERVER_ENABLE=true
-      - WOODPECKER_GITEA=true
-      - WOODPECKER_GITEA_URL=https://gitea.example.com
-      - WOODPECKER_AGENT_SECRET=changeme
+      - TZ=UTC
     volumes:
-      - /data/woodpecker:/var/lib/woodpecker
+      - /path/to/containers/woodpecker:/config
     ports:
       - 8000:8000
       - 9000:9000
     restart: unless-stopped
-
-  woodpecker-agent:
-    image: ghcr.io/daemonless/woodpecker:latest
-    container_name: woodpecker-agent
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - WOODPECKER_AGENT_ENABLE=true
-      - WOODPECKER_SERVER=woodpecker-server:9000
-      - WOODPECKER_AGENT_SECRET=changeme
-    volumes:
-      - /var/run/podman/podman.sock:/var/run/podman.sock
-    restart: unless-stopped
 ```
 
-## Tags
+### Podman CLI
 
-| Tag | Source | Description |
-|-----|--------|-------------|
-| `:latest` | [Upstream Releases](https://github.com/woodpecker-ci/woodpecker) | Built from source |
+```bash
+podman run -d --name woodpecker \
+  -p 8000:8000 \
+  -p 9000:9000 \
+  -e WOODPECKER_SERVER_ENABLE=true \
+  -e WOODPECKER_DATABASE_DRIVER=sqlite3 \
+  -e WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite \
+  -e WOODPECKER_AGENT_SECRET=agent-secret \
+  -e PUID=@PUID@ \
+  -e PGID=@PGID@ \
+  -e TZ=@TZ@ \
+  -v /path/to/containers/woodpecker:/config \ 
+  ghcr.io/daemonless/woodpecker:latest
+```
+Access at: `http://localhost:8000`
 
-## Environment Variables
+### Ansible
+
+```yaml
+- name: Deploy woodpecker
+  containers.podman.podman_container:
+    name: woodpecker
+    image: ghcr.io/daemonless/woodpecker:latest
+    state: started
+    restart_policy: always
+    env:
+      WOODPECKER_SERVER_ENABLE: "true"
+      WOODPECKER_DATABASE_DRIVER: "sqlite3"
+      WOODPECKER_DATABASE_DATASOURCE: "/config/woodpecker.sqlite"
+      WOODPECKER_AGENT_SECRET: "agent-secret"
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "UTC"
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - "/path/to/containers/woodpecker:/config"
+```
+
+## Configuration
+
+### Environment Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `PUID` | 1000 | User ID for app |
-| `PGID` | 1000 | Group ID for app |
-| `TZ` | UTC | Timezone |
-| `WOODPECKER_SERVER_ENABLE` | false | Enable server mode |
-| `WOODPECKER_AGENT_ENABLE` | false | Enable agent mode |
+| `WOODPECKER_SERVER_ENABLE` | `true` | Enable Woodpecker Server (true/false) |
+| `WOODPECKER_DATABASE_DRIVER` | `sqlite3` |  |
+| `WOODPECKER_DATABASE_DATASOURCE` | `/config/woodpecker.sqlite` |  |
+| `WOODPECKER_AGENT_SECRET` | `agent-secret` | Shared secret for server-agent communication |
+| `PUID` | `1000` |  |
+| `PGID` | `1000` |  |
+| `TZ` | `UTC` |  |
 
-See [Woodpecker Docs](https://woodpecker-ci.org/docs/administration/server-config) for all configuration options.
-
-## Volumes
+### Volumes
 
 | Path | Description |
 |------|-------------|
-| `/var/lib/woodpecker` | Server database and data |
+| `/config` | Data directory (database, logs) |
 
-## Ports
+### Ports
 
-| Port | Description |
-|------|-------------|
-| 8000 | Web UI (Server) |
-| 9000 | gRPC Agent communication (Server) |
+| Port | Protocol | Description |
+|------|----------|-------------|
+| `8000` | TCP | Server Web UI/API |
+| `9000` | TCP | GRPC (Server/Agent communication) |
 
 ## Notes
 
-- **User:** `bsd` (UID/GID set via PUID/PGID, default 1000)
-- **Base:** Built on `ghcr.io/daemonless/base-image` (FreeBSD)
-- **Dual Mode:** This image contains both Server and Agent binaries. Enable one or both via env vars.
-
-## Building
-
-This image is built via **Woodpecker CI** only. GitHub Actions is disabled because the Go compilation (3 binaries from source) exceeds GitHub's runner time limits.
-
-## Links
-
-- [Website](https://woodpecker-ci.org/)
-- [GitHub](https://github.com/woodpecker-ci/woodpecker)
+- **User:** `bsd` (UID/GID set via PUID/PGID)
+- **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)

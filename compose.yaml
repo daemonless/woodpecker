@@ -1,0 +1,65 @@
+name: woodpecker
+
+x-daemonless:
+  title: "Woodpecker CI"
+  icon: ":material-hammer:"
+  category: "Infrastructure"
+  description: "Woodpecker CI server and agent on FreeBSD."
+  upstream_url: "https://github.com/woodpecker-ci/woodpecker"
+  web_url: "https://woodpecker-ci.org/"
+  freshports_url: "https://www.freshports.org/devel/woodpecker-server/"
+  user: "bsd"
+  mlock: false
+  upstream_binary: true
+  
+  docs:
+    env:
+      WOODPECKER_SERVER_ENABLE: "Enable Woodpecker Server (true/false)"
+      WOODPECKER_AGENT_ENABLE: "Enable Woodpecker Agent (true/false)"
+      WOODPECKER_HOST: "The external host address"
+      WOODPECKER_GITEA: "Enable Gitea authentication (true/false)"
+      WOODPECKER_GITEA_URL: "The URL of the Gitea server"
+      WOODPECKER_AGENT_SECRET: "Shared secret for server-agent communication"
+    volumes:
+      /config: "Data directory (database, logs)"
+    ports:
+      8000: "Server Web UI/API"
+      9000: "GRPC (Server/Agent communication)"
+
+services:
+  woodpecker-server:
+    image: ghcr.io/daemonless/woodpecker:latest
+    container_name: woodpecker-server
+    restart: unless-stopped
+    
+    environment:
+      - WOODPECKER_SERVER_ENABLE=true
+      - WOODPECKER_DATABASE_DRIVER=sqlite3
+      - WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
+      - WOODPECKER_AGENT_SECRET=agent-secret
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+
+    volumes:
+      - /path/to/containers/woodpecker/server:/config
+
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+
+  woodpecker-agent:
+    image: ghcr.io/daemonless/woodpecker:latest
+    container_name: woodpecker-agent
+    restart: unless-stopped
+    
+    environment:
+      - WOODPECKER_AGENT_ENABLE=true
+      - WOODPECKER_SERVER=woodpecker-server:9000
+      - WOODPECKER_AGENT_SECRET=agent-secret
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+
+    volumes:
+      - /path/to/containers/woodpecker/agent:/config
