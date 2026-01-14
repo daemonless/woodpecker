@@ -66,9 +66,9 @@ Access at: `http://localhost:8000`
       WOODPECKER_DATABASE_DRIVER: "sqlite3"
       WOODPECKER_DATABASE_DATASOURCE: "/config/woodpecker.sqlite"
       WOODPECKER_AGENT_SECRET: "agent-secret"
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
+      PUID: "@PUID@"
+      PGID: "@PGID@"
+      TZ: "@TZ@"
     ports:
       - "8000:8000"
       - "9000:9000"
@@ -77,7 +77,6 @@ Access at: `http://localhost:8000`
 ```
 
 ## Configuration
-
 ### Environment Variables
 
 | Variable | Default | Description |
@@ -89,13 +88,11 @@ Access at: `http://localhost:8000`
 | `PUID` | `1000` |  |
 | `PGID` | `1000` |  |
 | `TZ` | `UTC` |  |
-
 ### Volumes
 
 | Path | Description |
 |------|-------------|
 | `/config` | Data directory (database, logs) |
-
 ### Ports
 
 | Port | Protocol | Description |
