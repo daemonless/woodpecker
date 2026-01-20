@@ -1,0 +1,18 @@
+# Minimal compose for cit testing
+name: woodpecker-test
+
+services:
+  woodpecker-server:
+    image: ghcr.io/daemonless/woodpecker:build
+    network_mode: host
+    environment:
+      WOODPECKER_SERVER_ENABLE: "true"
+      WOODPECKER_DATABASE_DRIVER: sqlite3
+      WOODPECKER_DATABASE_DATASOURCE: /config/woodpecker.sqlite
+      WOODPECKER_AGENT_SECRET: test-secret
+      WOODPECKER_OPEN: "true"
+    volumes:
+      - woodpecker-data:/config
+
+volumes:
+  woodpecker-data:
