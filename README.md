@@ -11,6 +11,7 @@ Woodpecker CI server and agent on FreeBSD.
 |---|---|
 | **Port** | 8000 |
 | **Registry** | `ghcr.io/daemonless/woodpecker` |
+| **Docs** | [daemonless.io/images/woodpecker](https://daemonless.io/images/woodpecker/) |
 | **Source** | [https://github.com/woodpecker-ci/woodpecker](https://github.com/woodpecker-ci/woodpecker) |
 | **Website** | [https://woodpecker-ci.org/](https://woodpecker-ci.org/) |
 
