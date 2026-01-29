@@ -21,7 +21,7 @@ RUN if [ "$VERSION" = "latest" ]; then \
 WORKDIR /src/web
 RUN pnpm install --frozen-lockfile && pnpm build
 
-# Stage 2: Build the backend (Server, Agent, CLI)
+# Stage 2: Build the backend (Server, Agent, CLI, plugin-git)
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS backend-builder
 RUN pkg update && pkg install -y go125 git ca_root_nss sqlite3 \
     FreeBSD-clang FreeBSD-clang-dev FreeBSD-clibs-dev FreeBSD-runtime-dev \
@@ -38,12 +38,16 @@ RUN export VERSION=$(cat /version.txt) && \
     /usr/local/bin/go125 build -tags 'sqlite_unlock_notify' -ldflags "-X go.woodpecker-ci.org/woodpecker/v3/version.Version=${VERSION}" -o /bin/woodpecker-server ./cmd/server && \
     /usr/local/bin/go125 build -ldflags "-X go.woodpecker-ci.org/woodpecker/v3/version.Version=${VERSION}" -o /bin/woodpecker-agent ./cmd/agent && \
     /usr/local/bin/go125 build -ldflags "-X go.woodpecker-ci.org/woodpecker/v3/version.Version=${VERSION}" -o /bin/woodpecker-cli ./cmd/cli
+# Build plugin-git for FreeBSD
+RUN git clone --depth 1 https://github.com/woodpecker-ci/plugin-git.git /plugin-git && \
+    cd /plugin-git && \
+    /usr/local/bin/go125 build -o /bin/plugin-git
 
 # Stage 3: Final Runtime
 FROM ghcr.io/daemonless/base:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
-ARG PACKAGES="ca_root_nss git-tiny sqlite3 podman gsed gawk gnugrep"
+ARG PACKAGES="ca_root_nss git sqlite3 podman gsed gawk gnugrep git-lfs"
 ARG UPSTREAM_URL="https://api.github.com/repos/woodpecker-ci/woodpecker/releases/latest"
 ARG UPSTREAM_JQ=".tag_name"
 ARG HEALTHCHECK_ENDPOINT="http://localhost:8000/healthz"
@@ -56,7 +60,7 @@ LABEL org.opencontainers.image.title="Woodpecker CI" \
       org.opencontainers.image.source="https://github.com/daemonless/woodpecker" \
       org.opencontainers.image.url="https://woodpecker-ci.org/" \
       org.opencontainers.image.documentation="https://woodpecker-ci.org/docs/intro" \
-      org.opencontainers.image.licenses="BSD-2-Clause" \
+      org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.vendor="daemonless" \
       org.opencontainers.image.authors="daemonless" \
       io.daemonless.category="Infrastructure" \
@@ -80,10 +84,14 @@ ENV HOME=/config
 COPY --from=backend-builder /bin/woodpecker-server /usr/local/bin/
 COPY --from=backend-builder /bin/woodpecker-agent /usr/local/bin/
 COPY --from=backend-builder /bin/woodpecker-cli /usr/local/bin/
+COPY --from=backend-builder /bin/plugin-git /usr/local/bin/
 COPY --from=frontend-builder /version.txt /version.txt
 
-RUN chmod 755 /usr/local/bin/woodpecker-server /usr/local/bin/woodpecker-agent /usr/local/bin/woodpecker-cli && \
+RUN chmod 755 /usr/local/bin/woodpecker-server /usr/local/bin/woodpecker-agent /usr/local/bin/woodpecker-cli /usr/local/bin/plugin-git && \
     mkdir -p /app && cp /version.txt /app/version && rm /version.txt
+
+# Configure Woodpecker to use local plugin-git
+ENV WOODPECKER_BACKEND_LOCAL_CLONE=/usr/local/bin/plugin-git
 
 COPY root/ /
 
