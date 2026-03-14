@@ -7,7 +7,6 @@ x-daemonless:
   description: "Woodpecker CI server and agent on FreeBSD."
   upstream_url: "https://github.com/woodpecker-ci/woodpecker"
   web_url: "https://woodpecker-ci.org/"
-  freshports_url: "https://www.freshports.org/devel/woodpecker-server/"
   user: "bsd"
   mlock: false
   upstream_binary: true
