@@ -5,15 +5,27 @@ Source: dbuild templates
 
 # Woodpecker CI
 
-Woodpecker CI server and agent on FreeBSD.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/woodpecker/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/woodpecker/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/daemonless/woodpecker?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/woodpecker/commits)
+
+Lightweight CI/CD pipeline server with a built-in agent — integrates with Gitea, GitHub, and GitLab for automated builds and deployments.
 
 | | |
 |---|---|
 | **Port** | 8000 |
 | **Registry** | `ghcr.io/daemonless/woodpecker` |
-| **Docs** | [daemonless.io/images/woodpecker](https://daemonless.io/images/woodpecker/) |
 | **Source** | [https://github.com/woodpecker-ci/woodpecker](https://github.com/woodpecker-ci/woodpecker) |
 | **Website** | [https://woodpecker-ci.org/](https://woodpecker-ci.org/) |
+
+## Version Tags
+
+| Tag | Description | Best For |
+| :--- | :--- | :--- |
+| `latest` | **Upstream Binary**. Built from official release. | Most users. Matches Linux Docker behavior. |
+
+## Prerequisites
+
+Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 
 ## Deployment
 
@@ -33,11 +45,63 @@ services:
       - PGID=1000
       - TZ=UTC
     volumes:
-      - /path/to/containers/woodpecker:/config
+      - "/path/to/containers/woodpecker:/config"
     ports:
       - 8000:8000
       - 9000:9000
     restart: unless-stopped
+```
+
+### AppJail Director
+
+**.env**:
+
+```
+DIRECTOR_PROJECT=woodpecker
+WOODPECKER_SERVER_ENABLE=true
+WOODPECKER_DATABASE_DRIVER=sqlite3
+WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
+WOODPECKER_AGENT_SECRET=agent-secret
+PUID=1000
+PGID=1000
+TZ=UTC
+```
+
+**appjail-director.yml**:
+
+```yaml
+options:
+  - virtualnet: ':<random> default'
+  - nat:
+services:
+  woodpecker:
+    name: woodpecker
+    options:
+      - container: 'boot args:--pull'
+    oci:
+      user: root
+      environment:
+        - WOODPECKER_SERVER_ENABLE: !ENV '${WOODPECKER_SERVER_ENABLE}'
+        - WOODPECKER_DATABASE_DRIVER: !ENV '${WOODPECKER_DATABASE_DRIVER}'
+        - WOODPECKER_DATABASE_DATASOURCE: !ENV '${WOODPECKER_DATABASE_DATASOURCE}'
+        - WOODPECKER_AGENT_SECRET: !ENV '${WOODPECKER_AGENT_SECRET}'
+        - PUID: !ENV '${PUID}'
+        - PGID: !ENV '${PGID}'
+        - TZ: !ENV '${TZ}'
+    volumes:
+      - woodpecker: /config
+volumes:
+  woodpecker:
+    device: '/path/to/containers/woodpecker'
+```
+
+**Makejail**:
+
+```
+ARG tag=latest
+
+OPTION overwrite=force
+OPTION from=ghcr.io/daemonless/woodpecker:${tag}
 ```
 
 ### Podman CLI
@@ -50,13 +114,12 @@ podman run -d --name woodpecker \
   -e WOODPECKER_DATABASE_DRIVER=sqlite3 \
   -e WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite \
   -e WOODPECKER_AGENT_SECRET=agent-secret \
-  -e PUID=@PUID@ \
-  -e PGID=@PGID@ \
-  -e TZ=@TZ@ \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=UTC \
   -v /path/to/containers/woodpecker:/config \
   ghcr.io/daemonless/woodpecker:latest
 ```
-Access at: `http://localhost:8000`
 
 ### Ansible
 
@@ -72,9 +135,9 @@ Access at: `http://localhost:8000`
       WOODPECKER_DATABASE_DRIVER: "sqlite3"
       WOODPECKER_DATABASE_DATASOURCE: "/config/woodpecker.sqlite"
       WOODPECKER_AGENT_SECRET: "agent-secret"
-      PUID: "@PUID@"
-      PGID: "@PGID@"
-      TZ: "@TZ@"
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "UTC"
     ports:
       - "8000:8000"
       - "9000:9000"
@@ -82,7 +145,10 @@ Access at: `http://localhost:8000`
       - "/path/to/containers/woodpecker:/config"
 ```
 
-## Configuration
+Access at: `http://localhost:8000`
+
+## Parameters
+
 ### Environment Variables
 
 | Variable | Default | Description |
@@ -94,11 +160,13 @@ Access at: `http://localhost:8000`
 | `PUID` | `1000` |  |
 | `PGID` | `1000` |  |
 | `TZ` | `UTC` |  |
+
 ### Volumes
 
 | Path | Description |
 |------|-------------|
 | `/config` | Data directory (database, logs) |
+
 ### Ports
 
 | Port | Protocol | Description |
@@ -106,8 +174,10 @@ Access at: `http://localhost:8000`
 | `8000` | TCP | Server Web UI/API |
 | `9000` | TCP | GRPC (Server/Agent communication) |
 
-## Notes
+**Architectures:** amd64
+**User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
+**Base:** FreeBSD 15.0
 
-- **Architectures:** amd64
-- **User:** `bsd` (UID/GID set via PUID/PGID)
-- **Base:** Built on `ghcr.io/daemonless/base` (FreeBSD)
+---
+
+Need help? Join our [Discord](https://discord.gg/Kb9tkhecZT) community.

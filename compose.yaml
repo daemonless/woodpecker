@@ -4,13 +4,14 @@ x-daemonless:
   title: "Woodpecker CI"
   icon: ":material-hammer:"
   category: "Infrastructure"
-  description: "Woodpecker CI server and agent on FreeBSD."
+  description: "Lightweight CI/CD pipeline server with a built-in agent — integrates with Gitea, GitHub, and GitLab for automated builds and deployments."
   upstream_url: "https://github.com/woodpecker-ci/woodpecker"
   web_url: "https://woodpecker-ci.org/"
   user: "bsd"
   mlock: false
   upstream_binary: true
-  
+  appjail: true
+
   docs:
     env:
       WOODPECKER_SERVER_ENABLE: "Enable Woodpecker Server (true/false)"

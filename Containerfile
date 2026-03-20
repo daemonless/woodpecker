@@ -56,7 +56,7 @@ ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
 
 # --- Metadata (Injected by Generator) ---
 LABEL org.opencontainers.image.title="Woodpecker CI" \
-      org.opencontainers.image.description="Woodpecker CI server and agent on FreeBSD." \
+      org.opencontainers.image.description="Lightweight CI/CD pipeline server with a built-in agent — integrates with Gitea, GitHub, and GitLab for automated builds and deployments." \
       org.opencontainers.image.source="https://github.com/daemonless/woodpecker" \
       org.opencontainers.image.url="https://woodpecker-ci.org/" \
       org.opencontainers.image.documentation="https://woodpecker-ci.org/docs/intro" \
