@@ -1,12 +1,12 @@
 {
   "image": "woodpecker",
-  "generated": "2026-03-14T11:01:03Z",
+  "generated": "2026-03-20T12:23:58Z",
   "tags": {
     "latest": {
       "arch": "amd64",
       "app_version": "v3.13.0",
       "source": "upstream",
-      "generated": "2026-03-14T11:00:46Z",
+      "generated": "2026-03-20T12:23:39Z",
       "packages": {
         "freebsd": [
           {
@@ -494,7 +494,7 @@
           },
           {
             "name": "github.com/woodpecker-ci/plugin-git",
-            "version": "v0.0.0-20260314015859-026cd04d0f06"
+            "version": "v0.0.0-20260317174027-a311aead3f96"
           },
           {
             "name": "github.com/adrg/xdg",
