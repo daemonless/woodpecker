@@ -10,6 +10,7 @@ Source: dbuild templates
 
 Lightweight CI/CD pipeline server with a built-in agent — integrates with Gitea, GitHub, and GitLab for automated builds and deployments.
 
+
 | | |
 |---|---|
 | **Port** | 8000 |
