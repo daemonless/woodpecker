@@ -10,7 +10,6 @@ Source: dbuild templates
 
 Lightweight CI/CD pipeline server with a built-in agent — integrates with Gitea, GitHub, and GitLab for automated builds and deployments.
 
-
 | | |
 |---|---|
 | **Port** | 8000 |
@@ -145,8 +144,6 @@ podman run -d --name woodpecker \
     volumes:
       - "/path/to/containers/woodpecker:/config"
 ```
-
-Access at: `http://localhost:8000`
 
 ## Parameters
 
