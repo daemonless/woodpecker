@@ -20,6 +20,8 @@ x-daemonless:
       WOODPECKER_GITEA: "Enable Gitea authentication (true/false)"
       WOODPECKER_GITEA_URL: "The URL of the Gitea server"
       WOODPECKER_AGENT_SECRET: "Shared secret for server-agent communication"
+      WOODPECKER_DATABASE_DRIVER: "Database driver (sqlite3 or postgres)"
+      WOODPECKER_DATABASE_DATASOURCE: "Database connection string or file path"
     volumes:
       /config: "Data directory (database, logs)"
     ports:
@@ -31,7 +33,6 @@ services:
     image: ghcr.io/daemonless/woodpecker:latest
     container_name: woodpecker-server
     restart: unless-stopped
-    
     environment:
       - WOODPECKER_SERVER_ENABLE=true
       - WOODPECKER_DATABASE_DRIVER=sqlite3
@@ -52,7 +53,6 @@ services:
     image: ghcr.io/daemonless/woodpecker:latest
     container_name: woodpecker-agent
     restart: unless-stopped
-    
     environment:
       - WOODPECKER_AGENT_ENABLE=true
       - WOODPECKER_SERVER=woodpecker-server:9000

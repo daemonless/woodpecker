@@ -32,8 +32,8 @@ COPY --from=frontend-builder /version.txt /version.txt
 WORKDIR /src
 # Enable CGO for sqlite3 support
 ENV CGO_ENABLED=1
-# Use direct download to avoid slow proxy issues
 ENV GOPROXY=direct
+ENV GONOSUMDB=*
 RUN export VERSION=$(cat /version.txt) && \
     /usr/local/bin/go126 build -tags 'sqlite_unlock_notify' -ldflags "-X go.woodpecker-ci.org/woodpecker/v3/version.Version=${VERSION}" -o /bin/woodpecker-server ./cmd/server && \
     /usr/local/bin/go126 build -ldflags "-X go.woodpecker-ci.org/woodpecker/v3/version.Version=${VERSION}" -o /bin/woodpecker-agent ./cmd/agent && \
