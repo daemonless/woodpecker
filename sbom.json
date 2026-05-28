@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-20T08:05:26Z",
+  "generated": "2026-05-28T17:11:04Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
-      "app_version": "v3.14.1",
+      "app_version": "v3.15.0",
       "arch": "amd64",
-      "generated": "2026-05-20T08:04:04Z",
+      "generated": "2026-05-28T17:09:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -51,7 +51,7 @@
           },
           {
             "name": "FreeBSD-libcasper",
-            "version": "15.0"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-libexecinfo",
@@ -95,7 +95,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p8"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -107,7 +107,7 @@
           },
           {
             "name": "FreeBSD-utilities",
-            "version": "15.0p1"
+            "version": "15.0p9"
           },
           {
             "name": "FreeBSD-xz-lib",
@@ -401,7 +401,7 @@
           },
           {
             "name": "code.gitea.io/sdk/gitea",
-            "version": "v0.24.1"
+            "version": "v0.25.1"
           },
           {
             "name": "codeberg.org/6543/go-yaml2json",
@@ -645,7 +645,7 @@
           },
           {
             "name": "github.com/docker/cli",
-            "version": "v29.4.1+incompatible"
+            "version": "v29.5.2+incompatible"
           },
           {
             "name": "github.com/docker/distribution",
@@ -896,8 +896,8 @@
             "version": "v0.20.6"
           },
           {
-            "name": "github.com/google/go-github/v85",
-            "version": "v85.0.0"
+            "name": "github.com/google/go-github/v88",
+            "version": "v88.0.0"
           },
           {
             "name": "github.com/google/go-intervals",
@@ -957,7 +957,7 @@
           },
           {
             "name": "github.com/hashicorp/go-version",
-            "version": "v1.8.0"
+            "version": "v1.9.0"
           },
           {
             "name": "github.com/hashicorp/yamux",
@@ -1425,7 +1425,7 @@
           },
           {
             "name": "github.com/woodpecker-ci/plugin-git",
-            "version": "v0.0.0-20260515162833-edd21dd2ed69"
+            "version": "v0.0.0-20260528081302-f1f724f676fc"
           },
           {
             "name": "github.com/x448/float16",
@@ -1457,7 +1457,7 @@
           },
           {
             "name": "gitlab.com/gitlab-org/api/client-go/v2",
-            "version": "v2.21.0"
+            "version": "v2.34.0"
           },
           {
             "name": "go.etcd.io/bbolt",
@@ -1509,7 +1509,7 @@
           },
           {
             "name": "go.woodpecker-ci.org/woodpecker/v3",
-            "version": "v3.14.1"
+            "version": "v3.15.0"
           },
           {
             "name": "go.yaml.in/yaml/v2",
@@ -1525,7 +1525,7 @@
           },
           {
             "name": "golang.org/x/image",
-            "version": "v0.39.0"
+            "version": "v0.41.0"
           },
           {
             "name": "golang.org/x/mod",
@@ -1561,7 +1561,7 @@
           },
           {
             "name": "golang.org/x/tools",
-            "version": "v0.43.0"
+            "version": "v0.44.0"
           },
           {
             "name": "google.golang.org/genproto/googleapis/api",
@@ -1597,15 +1597,15 @@
           },
           {
             "name": "k8s.io/api",
-            "version": "v0.36.0"
+            "version": "v0.36.1"
           },
           {
             "name": "k8s.io/apimachinery",
-            "version": "v0.36.0"
+            "version": "v0.36.1"
           },
           {
             "name": "k8s.io/client-go",
-            "version": "v0.36.0"
+            "version": "v0.36.1"
           },
           {
             "name": "k8s.io/klog/v2",
