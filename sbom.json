@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-28T17:11:04Z",
+  "generated": "2026-06-07T22:14:37Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.15.0",
       "arch": "amd64",
-      "generated": "2026-05-28T17:09:49Z",
+      "generated": "2026-06-07T22:13:20Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -135,11 +135,11 @@
           },
           {
             "name": "conmon",
-            "version": "2.2.1_2"
+            "version": "2.2.1_3"
           },
           {
             "name": "containernetworking-plugins",
-            "version": "0.6_13"
+            "version": "0.6_14"
           },
           {
             "name": "containers-common",
@@ -171,7 +171,7 @@
           },
           {
             "name": "git-lfs",
-            "version": "3.6.1_17"
+            "version": "3.6.1_18"
           },
           {
             "name": "glib",
@@ -347,7 +347,7 @@
           },
           {
             "name": "podman",
-            "version": "5.8.1_2"
+            "version": "5.8.1_3"
           },
           {
             "name": "py311-packaging",
@@ -1425,7 +1425,7 @@
           },
           {
             "name": "github.com/woodpecker-ci/plugin-git",
-            "version": "v0.0.0-20260528081302-f1f724f676fc"
+            "version": "v0.0.0-20260603020949-2ce1a61f9be4"
           },
           {
             "name": "github.com/x448/float16",
@@ -1641,7 +1641,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.25.10"
+            "version": "v1.25.11"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
