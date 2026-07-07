@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-27T16:51:19Z",
+  "generated": "2026-07-07T11:12:22Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.16.0",
       "arch": "amd64",
-      "generated": "2026-06-27T16:49:57Z",
+      "generated": "2026-07-07T11:11:05Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -27,7 +27,7 @@
           },
           {
             "name": "FreeBSD-clibs",
-            "version": "15.0"
+            "version": "15.0p11"
           },
           {
             "name": "FreeBSD-ctf-lib",
@@ -95,7 +95,7 @@
           },
           {
             "name": "FreeBSD-runtime",
-            "version": "15.0p10"
+            "version": "15.0p11"
           },
           {
             "name": "FreeBSD-tcpd",
@@ -107,7 +107,7 @@
           },
           {
             "name": "FreeBSD-utilities",
-            "version": "15.0p10"
+            "version": "15.0p11"
           },
           {
             "name": "FreeBSD-xz-lib",
@@ -115,7 +115,7 @@
           },
           {
             "name": "FreeBSD-zfs-lib",
-            "version": "15.0p10"
+            "version": "15.0p11"
           },
           {
             "name": "FreeBSD-zlib",
@@ -147,7 +147,7 @@
           },
           {
             "name": "curl",
-            "version": "8.20.0"
+            "version": "8.21.0"
           },
           {
             "name": "execline",
@@ -1409,7 +1409,7 @@
           },
           {
             "name": "github.com/urfave/cli/v3",
-            "version": "v3.10.0"
+            "version": "v3.10.1"
           },
           {
             "name": "github.com/valyala/fastjson",
@@ -1425,7 +1425,7 @@
           },
           {
             "name": "github.com/woodpecker-ci/plugin-git",
-            "version": "v0.0.0-20260620020641-ad539f864c5b"
+            "version": "v0.0.0-20260629024657-ade13d1b36ea"
           },
           {
             "name": "github.com/x448/float16",
