@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-07T11:12:22Z",
+  "generated": "2026-07-19T22:38:19Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.16.0",
       "arch": "amd64",
-      "generated": "2026-07-07T11:11:05Z",
+      "generated": "2026-07-19T22:36:57Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -70,6 +70,10 @@
             "version": "15.0"
           },
           {
+            "name": "FreeBSD-locales",
+            "version": "15.0"
+          },
+          {
             "name": "FreeBSD-mtree",
             "version": "15.0"
           },
@@ -131,19 +135,19 @@
           },
           {
             "name": "ca_root_nss",
-            "version": "3.124"
+            "version": "3.125"
           },
           {
             "name": "conmon",
-            "version": "2.2.1_3"
+            "version": "2.2.1_5"
           },
           {
             "name": "containernetworking-plugins",
-            "version": "0.6_14"
+            "version": "0.6_15"
           },
           {
             "name": "containers-common",
-            "version": "0.64.2_2"
+            "version": "0.64.2_4"
           },
           {
             "name": "curl",
@@ -155,7 +159,7 @@
           },
           {
             "name": "expat",
-            "version": "2.8.1"
+            "version": "2.8.2"
           },
           {
             "name": "gawk",
@@ -163,19 +167,19 @@
           },
           {
             "name": "gettext-runtime",
-            "version": "1.0"
+            "version": "1.0_1"
           },
           {
             "name": "git",
-            "version": "2.53.0"
+            "version": "2.54.0"
           },
           {
             "name": "git-lfs",
-            "version": "3.6.1_18"
+            "version": "3.6.1_19"
           },
           {
             "name": "glib",
-            "version": "2.84.4,2"
+            "version": "2.86.4,2"
           },
           {
             "name": "gmp",
@@ -187,7 +191,7 @@
           },
           {
             "name": "gnupg",
-            "version": "2.4.9"
+            "version": "2.5.20_1"
           },
           {
             "name": "gnutls",
@@ -195,11 +199,11 @@
           },
           {
             "name": "gpgme",
-            "version": "2.0.1"
+            "version": "2.1.2"
           },
           {
             "name": "gsed",
-            "version": "4.9"
+            "version": "4.10"
           },
           {
             "name": "indexinfo",
@@ -207,7 +211,7 @@
           },
           {
             "name": "jq",
-            "version": "1.8.1"
+            "version": "1.8.2"
           },
           {
             "name": "libassuan",
@@ -215,19 +219,19 @@
           },
           {
             "name": "libedit",
-            "version": "3.1.20251016_1,1"
+            "version": "3.1.20260512,1"
           },
           {
             "name": "libffi",
-            "version": "3.5.1"
+            "version": "3.6.0"
           },
           {
             "name": "libgcrypt",
-            "version": "1.12.0_1"
+            "version": "1.12.2"
           },
           {
             "name": "libgpg-error",
-            "version": "1.59"
+            "version": "1.61"
           },
           {
             "name": "libiconv",
@@ -239,19 +243,23 @@
           },
           {
             "name": "libksba",
-            "version": "1.6.7"
+            "version": "1.8.0"
+          },
+          {
+            "name": "liblz4",
+            "version": "1.10.0_2,1"
           },
           {
             "name": "libnghttp2",
-            "version": "1.68.1"
+            "version": "1.69.0"
           },
           {
             "name": "libpsl",
-            "version": "0.21.5_2"
+            "version": "0.22.0"
           },
           {
             "name": "libssh2",
-            "version": "1.11.1,3"
+            "version": "1.11.1_1,3"
           },
           {
             "name": "libtasn1",
@@ -275,7 +283,7 @@
           },
           {
             "name": "ocijail",
-            "version": "0.4.0_1"
+            "version": "0.6.0"
           },
           {
             "name": "oniguruma",
@@ -303,7 +311,7 @@
           },
           {
             "name": "p5-IO-Socket-SSL",
-            "version": "2.098"
+            "version": "2.099"
           },
           {
             "name": "p5-MIME-Base32",
@@ -335,27 +343,27 @@
           },
           {
             "name": "pinentry",
-            "version": "1.3.2_1"
+            "version": "1.3.3"
           },
           {
             "name": "pinentry-curses",
-            "version": "1.3.2"
+            "version": "1.3.3"
           },
           {
             "name": "pkg",
-            "version": "2.6.2_1"
+            "version": "2.7.5"
           },
           {
             "name": "podman",
-            "version": "5.8.1_3"
+            "version": "5.8.4_1"
           },
           {
-            "name": "py311-packaging",
-            "version": "26.0"
+            "name": "py312-packaging",
+            "version": "26.2"
           },
           {
-            "name": "python311",
-            "version": "3.11.15_4"
+            "name": "python312",
+            "version": "3.12.13_3"
           },
           {
             "name": "readline",
@@ -371,11 +379,11 @@
           },
           {
             "name": "sqlite3",
-            "version": "3.50.4_2,1"
+            "version": "3.53.3,1"
           },
           {
             "name": "zstd",
-            "version": "1.5.7_1"
+            "version": "1.5.7_2"
           }
         ],
         "go": [
@@ -573,7 +581,7 @@
           },
           {
             "name": "github.com/containers/buildah",
-            "version": "v1.43.0"
+            "version": "v1.43.2"
           },
           {
             "name": "github.com/containers/conmon",
@@ -581,7 +589,7 @@
           },
           {
             "name": "github.com/containers/gvisor-tap-vsock",
-            "version": "v0.8.8"
+            "version": "v0.8.9"
           },
           {
             "name": "github.com/containers/libtrust",
@@ -765,7 +773,7 @@
           },
           {
             "name": "github.com/go-jose/go-jose/v4",
-            "version": "v4.0.5"
+            "version": "v4.1.4"
           },
           {
             "name": "github.com/go-logr/logr",
@@ -1217,7 +1225,7 @@
           },
           {
             "name": "github.com/opencontainers/cgroups",
-            "version": "v0.0.5"
+            "version": "v0.0.6"
           },
           {
             "name": "github.com/opencontainers/go-digest",
@@ -1425,7 +1433,7 @@
           },
           {
             "name": "github.com/woodpecker-ci/plugin-git",
-            "version": "v0.0.0-20260629024657-ade13d1b36ea"
+            "version": "v0.0.0-20260718020729-633a3c74e903"
           },
           {
             "name": "github.com/x448/float16",
@@ -1493,11 +1501,11 @@
           },
           {
             "name": "go.podman.io/common",
-            "version": "v0.67.0"
+            "version": "v0.67.1"
           },
           {
             "name": "go.podman.io/image/v5",
-            "version": "v5.39.1"
+            "version": "v5.39.2"
           },
           {
             "name": "go.podman.io/storage",
@@ -1533,7 +1541,7 @@
           },
           {
             "name": "golang.org/x/mod",
-            "version": "v0.32.0"
+            "version": "v0.36.0"
           },
           {
             "name": "golang.org/x/net",
@@ -1549,11 +1557,11 @@
           },
           {
             "name": "golang.org/x/sys",
-            "version": "v0.40.0"
+            "version": "v0.46.0"
           },
           {
             "name": "golang.org/x/term",
-            "version": "v0.39.0"
+            "version": "v0.44.0"
           },
           {
             "name": "golang.org/x/text",
@@ -1645,7 +1653,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.25.11"
+            "version": "v1.25.12"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
@@ -1674,7 +1682,7 @@
           },
           {
             "name": "packaging",
-            "version": "26.0"
+            "version": "26.2"
           }
         ],
         "ruby": [],
@@ -1724,7 +1732,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 92,
+        "freebsd": 94,
         "go": 321,
         "java": 0,
         "node": 0,
@@ -1732,7 +1740,7 @@
         "python": 2,
         "ruby": 0,
         "rust": 10,
-        "total": 425
+        "total": 427
       }
     }
   }
