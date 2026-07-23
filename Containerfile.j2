@@ -2,7 +2,7 @@
 # Multi-stage build
 
 # Stage 1: Build the frontend (Web UI)
-ARG BASE_VERSION=15
+ARG BASE_VERSION=15.1
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS frontend-builder
 RUN pkg update && pkg install -y node22 npm-node22 git ca_root_nss
 RUN npm install -g pnpm
