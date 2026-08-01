@@ -1,395 +1,707 @@
 {
-  "generated": "2026-07-23T21:28:02Z",
+  "generated": "2026-08-01T19:45:35Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
-      "app_version": "v3.16.0",
+      "app_version": "v3.17.0",
       "arch": "amd64",
-      "generated": "2026-07-23T21:26:43Z",
+      "generated": "2026-08-01T19:41:54Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-audit-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-blocklist",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-bzip2-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-certctl",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-clibs",
-            "version": "15.1p1"
+            "version": "15.1p2"
           },
           {
+            "licenses": [
+              "CDDL-1.0"
+            ],
             "name": "FreeBSD-ctf-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-fetch",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-kerberos-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libarchive",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libbsdstat",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libcasper",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libexecinfo",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libldns",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libmagic",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-libucl",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-locales",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-mtree",
-            "version": "15.1"
+            "version": "15.1p2"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-ncurses-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-openssl",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-openssl-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-pam-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-pkg-bootstrap",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-rc",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p1"
+            "version": "15.1p2"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-tcpd",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-ufs-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-utilities",
-            "version": "15.1p1"
+            "version": "15.1p2"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-xz-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "CDDL-1.0"
+            ],
             "name": "FreeBSD-zfs-lib",
             "version": "15.1p1"
           },
           {
+            "licenses": [
+              "Zlib"
+            ],
             "name": "FreeBSD-zlib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "PD"
+            ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1"
+            "version": "15.1p2"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-zstd-lib",
             "version": "15.1"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "brotli",
             "version": "1.2.0,1"
           },
           {
+            "licenses": [
+              "MPL20"
+            ],
             "name": "ca_root_nss",
             "version": "3.125"
           },
           {
+            "licenses": [
+              "APACHE20"
+            ],
             "name": "conmon",
             "version": "2.2.1_5"
           },
           {
+            "licenses": [
+              "APACHE20"
+            ],
             "name": "containernetworking-plugins",
             "version": "0.6_15"
           },
           {
+            "licenses": [
+              "APACHE20"
+            ],
             "name": "containers-common",
             "version": "0.64.2_4"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "curl",
             "version": "8.21.0"
           },
           {
+            "licenses": [
+              "ISCL"
+            ],
             "name": "execline",
             "version": "2.9.8.1"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "expat",
             "version": "2.8.2"
           },
           {
+            "licenses": [
+              "GPLv3+"
+            ],
             "name": "gawk",
             "version": "5.4.0"
           },
           {
+            "licenses": [
+              "GPLv3+",
+              "LGPL21+"
+            ],
             "name": "gettext-runtime",
             "version": "1.0_1"
           },
           {
+            "licenses": [
+              "GPLv2"
+            ],
             "name": "git",
             "version": "2.54.0"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "git-lfs",
             "version": "3.6.1_19"
           },
           {
+            "licenses": [
+              "LGPL20"
+            ],
             "name": "glib",
             "version": "2.86.4,2"
           },
           {
+            "licenses": [
+              "LGPL3"
+            ],
             "name": "gmp",
             "version": "6.3.0"
           },
           {
+            "licenses": [
+              "GPLv3+"
+            ],
             "name": "gnugrep",
             "version": "3.12"
           },
           {
+            "licenses": [
+              "LGPL3",
+              "GPLv3"
+            ],
             "name": "gnupg",
             "version": "2.5.20_1"
           },
           {
+            "licenses": [
+              "GPLv3+",
+              "LGPL21+"
+            ],
             "name": "gnutls",
             "version": "3.8.13"
           },
           {
+            "licenses": [
+              "LGPL21+"
+            ],
             "name": "gpgme",
             "version": "2.1.2"
           },
           {
+            "licenses": [
+              "GPLv3+",
+              "GFDL"
+            ],
             "name": "gsed",
             "version": "4.10"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "indexinfo",
             "version": "0.3.1_1"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "jq",
             "version": "1.8.2"
           },
           {
+            "licenses": [
+              "LGPL21"
+            ],
             "name": "libassuan",
             "version": "3.0.2"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "libedit",
             "version": "3.1.20260512,1"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "libffi",
             "version": "3.6.0"
           },
           {
+            "licenses": [
+              "LGPL21+",
+              "GPLv2+"
+            ],
             "name": "libgcrypt",
             "version": "1.12.2"
           },
           {
+            "licenses": [
+              "GPLv2",
+              "LGPL21"
+            ],
             "name": "libgpg-error",
             "version": "1.61"
           },
           {
+            "licenses": [
+              "GPLv3"
+            ],
             "name": "libiconv",
             "version": "1.18_1"
           },
           {
+            "licenses": [
+              "GPLv3"
+            ],
             "name": "libidn2",
             "version": "2.3.8"
           },
           {
+            "licenses": [
+              "LGPL3",
+              "GPLv2",
+              "GPLv3"
+            ],
             "name": "libksba",
             "version": "1.8.0"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE",
+              "GPLv2"
+            ],
             "name": "liblz4",
             "version": "1.10.0_2,1"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "libnghttp2",
             "version": "1.69.0"
           },
           {
+            "licenses": [
+              "MIT"
+            ],
             "name": "libpsl",
             "version": "0.22.0"
           },
           {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
             "name": "libssh2",
             "version": "1.11.1_1,3"
           },
           {
+            "licenses": [
+              "LGPL21+",
+              "GPLv3"
+            ],
             "name": "libtasn1",
             "version": "4.21.0"
           },
           {
+            "licenses": [
+              "GFDL",
+              "GPLv2",
+              "LGPL3+"
+            ],
             "name": "libunistring",
             "version": "1.4.2"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "mpdecimal",
             "version": "4.0.1"
           },
           {
+            "licenses": [
+              "LGPL3",
+              "GPLv2+"
+            ],
             "name": "nettle",
             "version": "3.10.2"
           },
           {
+            "licenses": [
+              "LGPL21+"
+            ],
             "name": "npth",
             "version": "1.8"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "ocijail",
             "version": "0.6.0"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "oniguruma",
             "version": "6.9.10"
           },
           {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
             "name": "p11-kit",
             "version": "0.26.2"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-Authen-SASL",
             "version": "2.1900"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-Crypt-URandom",
             "version": "0.54"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-Digest-HMAC",
             "version": "1.05"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-Error",
             "version": "0.17030"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-IO-Socket-SSL",
             "version": "2.099"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-MIME-Base32",
             "version": "1.303"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-MIME-Base64",
             "version": "3.16"
           },
           {
+            "licenses": [
+              "MPL20"
+            ],
             "name": "p5-Mozilla-CA",
             "version": "20250602"
           },
           {
+            "licenses": [
+              "OpenSSL"
+            ],
             "name": "p5-Net-SSLeay",
             "version": "1.94"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "p5-URI",
             "version": "5.34"
           },
           {
+            "licenses": [
+              "BSD3CLAUSE"
+            ],
             "name": "pcre2",
             "version": "10.47_1"
           },
           {
+            "licenses": [
+              "ART10",
+              "GPLv1+"
+            ],
             "name": "perl5",
             "version": "5.42.2"
           },
           {
+            "licenses": [
+              "GPLv2+"
+            ],
             "name": "pinentry",
             "version": "1.3.3"
           },
           {
+            "licenses": [
+              "GPLv2+"
+            ],
             "name": "pinentry-curses",
             "version": "1.3.3"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "pkg",
             "version": "2.7.5"
           },
           {
+            "licenses": [
+              "APACHE20"
+            ],
             "name": "podman",
             "version": "5.8.4_1"
           },
           {
+            "licenses": [
+              "BSD2CLAUSE",
+              "APACHE20"
+            ],
             "name": "py312-packaging",
             "version": "26.2"
           },
           {
+            "licenses": [
+              "PSFL"
+            ],
             "name": "python312",
             "version": "3.12.13_3"
           },
           {
+            "licenses": [
+              "GPLv3"
+            ],
             "name": "readline",
             "version": "8.3.3"
           },
           {
+            "licenses": [
+              "ISCL"
+            ],
             "name": "s6",
             "version": "2.14.0.1"
           },
           {
+            "licenses": [
+              "ISCL"
+            ],
             "name": "skalibs",
             "version": "2.14.5.1"
           },
           {
+            "licenses": [
+              "PD"
+            ],
             "name": "sqlite3",
             "version": "3.53.3,1"
           },
           {
+            "licenses": [
+              "GPLv2",
+              "BSD3CLAUSE"
+            ],
             "name": "zstd",
             "version": "1.5.7_2"
           }
@@ -397,1287 +709,1608 @@
         "go": [
           {
             "name": "al.essio.dev/pkg/shellescape",
+            "purl": "",
             "version": "v1.6.0"
           },
           {
             "name": "charm.land/bubbles/v2",
+            "purl": "",
             "version": "v2.0.0"
           },
           {
             "name": "charm.land/bubbletea/v2",
+            "purl": "",
             "version": "v2.0.2"
           },
           {
             "name": "charm.land/huh/v2",
+            "purl": "",
             "version": "v2.0.3"
           },
           {
             "name": "charm.land/lipgloss/v2",
+            "purl": "",
             "version": "v2.0.1"
           },
           {
             "name": "code.gitea.io/sdk/gitea",
+            "purl": "",
             "version": "v0.25.1"
           },
           {
             "name": "codeberg.org/6543/go-yaml2json/v2",
+            "purl": "",
             "version": "v2.0.0"
           },
           {
             "name": "codeberg.org/6543/xyaml/v2",
+            "purl": "",
             "version": "v2.0.1"
           },
           {
             "name": "codeberg.org/mvdkleijn/forgejo-sdk/forgejo/v3",
+            "purl": "",
             "version": "v3.0.0"
           },
           {
             "name": "dario.cat/mergo",
+            "purl": "",
             "version": "v1.0.2"
           },
           {
             "name": "filippo.io/edwards25519",
+            "purl": "",
             "version": "v1.2.0"
           },
           {
             "name": "github.com/42wim/httpsig",
+            "purl": "",
             "version": "v1.2.4"
           },
           {
             "name": "github.com/6543/logfile-open",
+            "purl": "",
             "version": "v1.2.1"
           },
           {
             "name": "github.com/BurntSushi/toml",
+            "purl": "",
             "version": "v1.5.0"
           },
           {
             "name": "github.com/KyleBanks/depth",
+            "purl": "",
             "version": "v1.2.1"
           },
           {
             "name": "github.com/VividCortex/ewma",
+            "purl": "",
             "version": "v1.2.0"
           },
           {
             "name": "github.com/acarl005/stripansi",
+            "purl": "",
             "version": "v0.0.0-20180116102854-5a71ef0e047d"
           },
           {
             "name": "github.com/adrg/xdg",
+            "purl": "",
             "version": "v0.5.3"
           },
           {
             "name": "github.com/aead/serpent",
+            "purl": "",
             "version": "v0.0.0-20160714141033-fba169763ea6"
           },
           {
             "name": "github.com/alexflint/go-filemutex",
+            "purl": "",
             "version": "v1.1.0"
           },
           {
             "name": "github.com/atotto/clipboard",
+            "purl": "",
             "version": "v0.1.4"
           },
           {
             "name": "github.com/aymanbagabas/go-osc52/v2",
+            "purl": "",
             "version": "v2.0.1"
           },
           {
             "name": "github.com/beorn7/perks",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/blang/semver/v4",
+            "purl": "",
             "version": "v4.0.0"
           },
           {
             "name": "github.com/bmatcuk/doublestar/v4",
+            "purl": "",
             "version": "v4.10.0"
           },
           {
             "name": "github.com/catppuccin/go",
+            "purl": "",
             "version": "v0.3.0"
           },
           {
-            "name": "github.com/cenkalti/backoff/v6",
-            "version": "v6.0.1"
+            "name": "github.com/cenkalti/backoff/v7",
+            "purl": "",
+            "version": "v7.0.0"
           },
           {
             "name": "github.com/cespare/xxhash/v2",
+            "purl": "",
             "version": "v2.3.0"
           },
           {
             "name": "github.com/charmbracelet/colorprofile",
+            "purl": "",
             "version": "v0.4.2"
           },
           {
             "name": "github.com/charmbracelet/ultraviolet",
+            "purl": "",
             "version": "v0.0.0-20260205113103-524a6607adb8"
           },
           {
             "name": "github.com/charmbracelet/x/ansi",
+            "purl": "",
             "version": "v0.11.6"
           },
           {
             "name": "github.com/charmbracelet/x/exp/ordered",
+            "purl": "",
             "version": "v0.1.0"
           },
           {
             "name": "github.com/charmbracelet/x/exp/strings",
+            "purl": "",
             "version": "v0.0.0-20240722160745-212f7b056ed0"
           },
           {
             "name": "github.com/charmbracelet/x/term",
+            "purl": "",
             "version": "v0.2.2"
           },
           {
             "name": "github.com/charmbracelet/x/termios",
+            "purl": "",
             "version": "v0.1.1"
           },
           {
             "name": "github.com/charmbracelet/x/windows",
+            "purl": "",
             "version": "v0.2.2"
           },
           {
             "name": "github.com/checkpoint-restore/checkpointctl",
+            "purl": "",
             "version": "v1.4.0"
           },
           {
             "name": "github.com/checkpoint-restore/go-criu/v7",
+            "purl": "",
             "version": "v7.2.0"
           },
           {
             "name": "github.com/chzyer/readline",
+            "purl": "",
             "version": "v1.5.1"
           },
           {
             "name": "github.com/clipperhouse/displaywidth",
+            "purl": "",
             "version": "v0.11.0"
           },
           {
             "name": "github.com/clipperhouse/uax29/v2",
+            "purl": "",
             "version": "v2.7.0"
           },
           {
             "name": "github.com/containerd/errdefs",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "github.com/containerd/errdefs/pkg",
+            "purl": "",
             "version": "v0.3.0"
           },
           {
             "name": "github.com/containerd/log",
+            "purl": "",
             "version": "v0.1.0"
           },
           {
             "name": "github.com/containerd/platforms",
+            "purl": "",
             "version": "v1.0.0-rc.1"
           },
           {
             "name": "github.com/containerd/typeurl/v2",
+            "purl": "",
             "version": "v2.2.3"
           },
           {
             "name": "github.com/containernetworking/cni",
+            "purl": "",
             "version": "v1.3.0"
           },
           {
             "name": "github.com/containernetworking/plugins",
+            "purl": "",
             "version": ""
           },
           {
             "name": "github.com/containers/buildah",
+            "purl": "",
             "version": "v1.43.2"
           },
           {
             "name": "github.com/containers/conmon",
+            "purl": "",
             "version": "v2.0.20+incompatible"
           },
           {
             "name": "github.com/containers/gvisor-tap-vsock",
+            "purl": "",
             "version": "v0.8.9"
           },
           {
             "name": "github.com/containers/libtrust",
+            "purl": "",
             "version": "v0.0.0-20230121012942-c1716e8a8d01"
           },
           {
             "name": "github.com/containers/luksy",
+            "purl": "",
             "version": "v0.0.0-20250910190358-2cf5bc928957"
           },
           {
             "name": "github.com/containers/ocicrypt",
+            "purl": "",
             "version": "v1.2.1"
           },
           {
             "name": "github.com/containers/podman/v5",
+            "purl": "",
             "version": ""
           },
           {
             "name": "github.com/coreos/go-iptables",
+            "purl": "",
             "version": "v0.6.0"
           },
           {
             "name": "github.com/coreos/go-oidc/v3",
+            "purl": "",
             "version": "v3.14.1"
           },
           {
             "name": "github.com/coreos/go-systemd",
+            "purl": "",
             "version": "v0.0.0-20190719114852-fd7a80b32e1f"
           },
           {
             "name": "github.com/coreos/go-systemd/v22",
+            "purl": "",
             "version": "v22.6.0"
           },
           {
             "name": "github.com/cyberphone/json-canonicalization",
+            "purl": "",
             "version": "v0.0.0-20241213102144-19d51d7fe467"
           },
           {
             "name": "github.com/cyphar/filepath-securejoin",
+            "purl": "",
             "version": "v0.5.2"
           },
           {
             "name": "github.com/davecgh/go-spew",
+            "purl": "",
             "version": "v1.1.2-0.20180830191138-d8f796af33cc"
           },
           {
             "name": "github.com/digitalocean/go-libvirt",
+            "purl": "",
             "version": "v0.0.0-20220804181439-8648fbde413e"
           },
           {
             "name": "github.com/digitalocean/go-qemu",
+            "purl": "",
             "version": "v0.0.0-20250212194115-ee9b0668d242"
           },
           {
             "name": "github.com/disiqueira/gotree/v3",
+            "purl": "",
             "version": "v3.0.2"
           },
           {
             "name": "github.com/distribution/reference",
+            "purl": "",
             "version": "v0.6.0"
           },
           {
             "name": "github.com/docker/cli",
-            "version": "v29.6.0+incompatible"
+            "purl": "",
+            "version": "v29.7.0+incompatible"
           },
           {
             "name": "github.com/docker/distribution",
+            "purl": "",
             "version": "v2.8.3+incompatible"
           },
           {
             "name": "github.com/docker/docker",
+            "purl": "",
             "version": "v28.5.1+incompatible"
           },
           {
             "name": "github.com/docker/docker-credential-helpers",
+            "purl": "",
             "version": "v0.9.4"
           },
           {
             "name": "github.com/docker/go-connections",
+            "purl": "",
             "version": "v0.6.0"
           },
           {
             "name": "github.com/docker/go-plugins-helpers",
+            "purl": "",
             "version": "v0.0.0-20240701071450-45e2431495c8"
           },
           {
             "name": "github.com/docker/go-units",
+            "purl": "",
             "version": "v0.5.0"
           },
           {
             "name": "github.com/dpotapov/go-spnego",
+            "purl": "",
             "version": "v0.0.0-20210315154721-298b63a54430"
           },
           {
             "name": "github.com/drone/envsubst",
+            "purl": "",
             "version": "v1.0.3"
           },
           {
             "name": "github.com/dunglas/httpsfv",
+            "purl": "",
             "version": "v1.0.2"
           },
           {
             "name": "github.com/dustin/go-humanize",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/emicklei/go-restful/v3",
+            "purl": "",
             "version": "v3.13.0"
           },
           {
             "name": "github.com/expr-lang/expr",
+            "purl": "",
             "version": "v1.17.8"
           },
           {
             "name": "github.com/fatih/color",
+            "purl": "",
             "version": "v1.18.0"
           },
           {
             "name": "github.com/felixge/httpsnoop",
+            "purl": "",
             "version": "v1.0.4"
           },
           {
             "name": "github.com/fsnotify/fsnotify",
+            "purl": "",
             "version": "v1.9.0"
           },
           {
             "name": "github.com/fsouza/go-dockerclient",
+            "purl": "",
             "version": "v1.12.2"
           },
           {
             "name": "github.com/fxamacker/cbor/v2",
+            "purl": "",
             "version": "v2.9.0"
           },
           {
             "name": "github.com/gabriel-vasile/mimetype",
+            "purl": "",
             "version": "v1.4.12"
           },
           {
             "name": "github.com/gdgvda/cron",
+            "purl": "",
             "version": "v0.7.0"
           },
           {
             "name": "github.com/gin-contrib/sse",
+            "purl": "",
             "version": "v1.1.0"
           },
           {
             "name": "github.com/gin-gonic/gin",
+            "purl": "",
             "version": "v1.12.0"
           },
           {
             "name": "github.com/git-lfs/git-lfs/v3",
+            "purl": "",
             "version": ""
           },
           {
             "name": "github.com/git-lfs/gitobj/v2",
+            "purl": "",
             "version": "v2.1.1"
           },
           {
             "name": "github.com/git-lfs/go-netrc",
+            "purl": "",
             "version": "v0.0.0-20210914205454-f0c862dd687a"
           },
           {
             "name": "github.com/git-lfs/pktline",
+            "purl": "",
             "version": "v0.0.0-20210330133718-06e9096e2825"
           },
           {
             "name": "github.com/git-lfs/wildmatch/v2",
+            "purl": "",
             "version": "v2.0.1"
           },
           {
             "name": "github.com/gitsight/go-vcsurl",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/gizahNL/gojail",
+            "purl": "",
             "version": "v0.0.1"
           },
           {
             "name": "github.com/go-fed/httpsig",
+            "purl": "",
             "version": "v1.1.0"
           },
           {
             "name": "github.com/go-jose/go-jose/v4",
+            "purl": "",
             "version": "v4.1.4"
           },
           {
             "name": "github.com/go-logr/logr",
+            "purl": "",
             "version": "v1.4.3"
           },
           {
             "name": "github.com/go-logr/stdr",
+            "purl": "",
             "version": "v1.2.2"
           },
           {
             "name": "github.com/go-openapi/errors",
+            "purl": "",
             "version": "v0.22.6"
           },
           {
             "name": "github.com/go-openapi/jsonpointer",
-            "version": "v0.22.4"
+            "purl": "",
+            "version": "v0.22.5"
           },
           {
             "name": "github.com/go-openapi/jsonreference",
+            "purl": "",
             "version": "v0.21.4"
           },
           {
             "name": "github.com/go-openapi/spec",
+            "purl": "",
             "version": "v0.22.3"
           },
           {
             "name": "github.com/go-openapi/strfmt",
+            "purl": "",
             "version": "v0.25.0"
           },
           {
             "name": "github.com/go-openapi/swag",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/cmdutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/conv",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/fileutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/jsonname",
-            "version": "v0.25.4"
+            "purl": "",
+            "version": "v0.25.5"
           },
           {
             "name": "github.com/go-openapi/swag/jsonutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/loading",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/mangling",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/netutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/stringutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/typeutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-openapi/swag/yamlutils",
+            "purl": "",
             "version": "v0.25.4"
           },
           {
             "name": "github.com/go-playground/locales",
+            "purl": "",
             "version": "v0.14.1"
           },
           {
             "name": "github.com/go-playground/universal-translator",
+            "purl": "",
             "version": "v0.18.1"
           },
           {
             "name": "github.com/go-playground/validator/v10",
+            "purl": "",
             "version": "v10.30.1"
           },
           {
             "name": "github.com/go-sql-driver/mysql",
+            "purl": "",
             "version": "v1.10.0"
           },
           {
             "name": "github.com/go-viper/mapstructure/v2",
+            "purl": "",
             "version": "v2.5.0"
           },
           {
             "name": "github.com/goccy/go-yaml",
+            "purl": "",
             "version": "v1.19.2"
           },
           {
             "name": "github.com/godbus/dbus/v5",
+            "purl": "",
             "version": "v5.1.1-0.20241109141217-c266b19b28e9"
           },
           {
             "name": "github.com/gogo/protobuf",
+            "purl": "",
             "version": "v1.3.2"
           },
           {
             "name": "github.com/golang-jwt/jwt/v5",
+            "purl": "",
             "version": "v5.3.1"
           },
           {
             "name": "github.com/golang/protobuf",
+            "purl": "",
             "version": "v1.5.4"
           },
           {
             "name": "github.com/golang/snappy",
+            "purl": "",
             "version": "v0.0.4"
           },
           {
             "name": "github.com/google/gnostic-models",
+            "purl": "",
             "version": "v0.7.0"
           },
           {
             "name": "github.com/google/go-containerregistry",
+            "purl": "",
             "version": "v0.20.6"
           },
           {
-            "name": "github.com/google/go-github/v88",
-            "version": "v88.0.0"
+            "name": "github.com/google/go-github/v89",
+            "purl": "",
+            "version": "v89.0.0"
           },
           {
             "name": "github.com/google/go-intervals",
+            "purl": "",
             "version": "v0.0.2"
           },
           {
             "name": "github.com/google/go-querystring",
+            "purl": "",
             "version": "v1.2.0"
           },
           {
             "name": "github.com/google/shlex",
+            "purl": "",
             "version": "v0.0.0-20191202100458-e7afc7fbc510"
           },
           {
             "name": "github.com/google/uuid",
+            "purl": "",
             "version": "v1.6.0"
           },
           {
             "name": "github.com/gorilla/handlers",
+            "purl": "",
             "version": "v1.5.2"
           },
           {
             "name": "github.com/gorilla/mux",
+            "purl": "",
             "version": "v1.8.1"
           },
           {
             "name": "github.com/gorilla/schema",
+            "purl": "",
             "version": "v1.4.1"
           },
           {
             "name": "github.com/hashicorp/errwrap",
+            "purl": "",
             "version": "v1.1.0"
           },
           {
             "name": "github.com/hashicorp/go-cleanhttp",
+            "purl": "",
             "version": "v0.5.2"
           },
           {
             "name": "github.com/hashicorp/go-hclog",
+            "purl": "",
             "version": "v1.6.3"
           },
           {
             "name": "github.com/hashicorp/go-multierror",
+            "purl": "",
             "version": "v1.1.1"
           },
           {
             "name": "github.com/hashicorp/go-plugin",
+            "purl": "",
             "version": "v1.8.0"
           },
           {
             "name": "github.com/hashicorp/go-retryablehttp",
+            "purl": "",
             "version": "v0.7.8"
           },
           {
             "name": "github.com/hashicorp/go-uuid",
+            "purl": "",
             "version": "v1.0.2"
           },
           {
             "name": "github.com/hashicorp/go-version",
+            "purl": "",
             "version": "v1.9.0"
           },
           {
             "name": "github.com/hashicorp/yamux",
+            "purl": "",
             "version": "v0.1.2"
           },
           {
             "name": "github.com/jcmturner/aescts/v2",
+            "purl": "",
             "version": "v2.0.0"
           },
           {
             "name": "github.com/jcmturner/dnsutils/v2",
+            "purl": "",
             "version": "v2.0.0"
           },
           {
             "name": "github.com/jcmturner/gofork",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "github.com/jcmturner/goidentity/v6",
+            "purl": "",
             "version": "v6.0.1"
           },
           {
             "name": "github.com/jcmturner/gokrb5/v8",
+            "purl": "",
             "version": "v8.4.2"
           },
           {
             "name": "github.com/jcmturner/rpc/v2",
+            "purl": "",
             "version": "v2.0.3"
           },
           {
             "name": "github.com/jellydator/ttlcache/v3",
+            "purl": "",
             "version": "v3.4.1"
           },
           {
             "name": "github.com/jinzhu/copier",
+            "purl": "",
             "version": "v0.4.0"
           },
           {
             "name": "github.com/jmhodges/clock",
+            "purl": "",
             "version": "v1.2.0"
           },
           {
             "name": "github.com/joho/godotenv",
+            "purl": "",
             "version": "v1.5.1"
           },
           {
             "name": "github.com/json-iterator/go",
+            "purl": "",
             "version": "v1.1.12"
           },
           {
             "name": "github.com/kevinburke/ssh_config",
+            "purl": "",
             "version": "v1.4.0"
           },
           {
             "name": "github.com/klauspost/compress",
+            "purl": "",
             "version": "v1.18.0"
           },
           {
             "name": "github.com/klauspost/pgzip",
+            "purl": "",
             "version": "v1.2.6"
           },
           {
             "name": "github.com/kr/fs",
+            "purl": "",
             "version": "v0.1.0"
           },
           {
             "name": "github.com/leodido/go-urn",
+            "purl": "",
             "version": "v1.4.0"
           },
           {
             "name": "github.com/leonelquinteros/gotext",
+            "purl": "",
             "version": "v1.5.0"
           },
           {
             "name": "github.com/lestrrat-go/blackmagic",
+            "purl": "",
             "version": "v1.0.4"
           },
           {
             "name": "github.com/lestrrat-go/dsig",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "github.com/lestrrat-go/httpcc",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/lestrrat-go/httprc",
+            "purl": "",
             "version": "v1.0.6"
           },
           {
             "name": "github.com/lestrrat-go/httprc/v3",
+            "purl": "",
             "version": "v3.0.1"
           },
           {
             "name": "github.com/lestrrat-go/iter",
+            "purl": "",
             "version": "v1.0.2"
           },
           {
             "name": "github.com/lestrrat-go/jwx/v2",
+            "purl": "",
             "version": "v2.1.2"
           },
           {
             "name": "github.com/lestrrat-go/jwx/v3",
+            "purl": "",
             "version": "v3.0.12"
           },
           {
             "name": "github.com/lestrrat-go/option",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/lestrrat-go/option/v2",
+            "purl": "",
             "version": "v2.0.0"
           },
           {
             "name": "github.com/letsencrypt/boulder",
+            "purl": "",
             "version": "v0.0.0-20240620165639-de9c06129bec"
           },
           {
             "name": "github.com/lib/pq",
+            "purl": "",
             "version": "v1.12.3"
           },
           {
             "name": "github.com/lucasb-eyer/go-colorful",
+            "purl": "",
             "version": "v1.3.0"
           },
           {
             "name": "github.com/manifoldco/promptui",
+            "purl": "",
             "version": "v0.9.0"
           },
           {
             "name": "github.com/mattn/go-colorable",
+            "purl": "",
             "version": "v0.1.14"
           },
           {
             "name": "github.com/mattn/go-isatty",
+            "purl": "",
             "version": "v0.0.4"
           },
           {
             "name": "github.com/mattn/go-runewidth",
+            "purl": "",
             "version": "v0.0.16"
           },
           {
             "name": "github.com/mattn/go-shellwords",
+            "purl": "",
             "version": "v1.0.12"
           },
           {
             "name": "github.com/mattn/go-sqlite3",
+            "purl": "",
             "version": "v1.14.32"
           },
           {
             "name": "github.com/miekg/pkcs11",
+            "purl": "",
             "version": "v1.1.1"
           },
           {
             "name": "github.com/mistifyio/go-zfs/v3",
+            "purl": "",
             "version": "v3.1.0"
           },
           {
             "name": "github.com/mitchellh/hashstructure/v2",
+            "purl": "",
             "version": "v2.0.2"
           },
           {
             "name": "github.com/moby/buildkit",
+            "purl": "",
             "version": "v0.25.1"
           },
           {
             "name": "github.com/moby/docker-image-spec",
+            "purl": "",
             "version": "v1.3.1"
           },
           {
             "name": "github.com/moby/go-archive",
+            "purl": "",
             "version": "v0.1.0"
           },
           {
             "name": "github.com/moby/moby/api",
+            "purl": "",
             "version": "v1.55.0"
           },
           {
             "name": "github.com/moby/moby/client",
-            "version": "v0.5.0"
+            "purl": "",
+            "version": "v0.5.1"
           },
           {
             "name": "github.com/moby/patternmatcher",
+            "purl": "",
             "version": "v0.6.0"
           },
           {
             "name": "github.com/moby/sys/capability",
+            "purl": "",
             "version": "v0.4.0"
           },
           {
             "name": "github.com/moby/sys/mountinfo",
+            "purl": "",
             "version": "v0.7.2"
           },
           {
             "name": "github.com/moby/sys/sequential",
+            "purl": "",
             "version": "v0.6.0"
           },
           {
             "name": "github.com/moby/sys/user",
+            "purl": "",
             "version": "v0.4.0"
           },
           {
             "name": "github.com/moby/sys/userns",
+            "purl": "",
             "version": "v0.1.0"
           },
           {
             "name": "github.com/moby/term",
+            "purl": "",
             "version": "v0.5.2"
           },
           {
             "name": "github.com/modern-go/concurrent",
+            "purl": "",
             "version": "v0.0.0-20180306012644-bacd9c7ef1dd"
           },
           {
             "name": "github.com/modern-go/reflect2",
+            "purl": "",
             "version": "v1.0.2"
           },
           {
             "name": "github.com/morikuni/aec",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "github.com/muesli/cancelreader",
+            "purl": "",
             "version": "v0.2.2"
           },
           {
             "name": "github.com/muesli/termenv",
+            "purl": "",
             "version": "v0.16.0"
           },
           {
             "name": "github.com/munnerz/goautoneg",
+            "purl": "",
             "version": "v0.0.0-20191010083416-a7dc8b61c822"
           },
           {
             "name": "github.com/neticdk/go-bitbucket",
+            "purl": "",
             "version": "v1.0.5"
           },
           {
             "name": "github.com/nxadm/tail",
+            "purl": "",
             "version": "v1.4.11"
           },
           {
             "name": "github.com/oklog/run",
+            "purl": "",
             "version": "v1.1.0"
           },
           {
             "name": "github.com/oklog/ulid",
+            "purl": "",
             "version": "v1.3.1"
           },
           {
             "name": "github.com/oklog/ulid/v2",
-            "version": "v2.1.1"
+            "purl": "",
+            "version": "v2.1.2"
           },
           {
             "name": "github.com/olekukonko/ts",
+            "purl": "",
             "version": "v0.0.0-20171002115256-78ecb04241c0"
           },
           {
             "name": "github.com/opencontainers/cgroups",
+            "purl": "",
             "version": "v0.0.6"
           },
           {
             "name": "github.com/opencontainers/go-digest",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "github.com/opencontainers/image-spec",
+            "purl": "",
             "version": "v1.1.1"
           },
           {
             "name": "github.com/opencontainers/runc",
+            "purl": "",
             "version": "v1.3.4"
           },
           {
             "name": "github.com/opencontainers/runtime-spec",
+            "purl": "",
             "version": "v1.2.1"
           },
           {
             "name": "github.com/opencontainers/runtime-tools",
+            "purl": "",
             "version": "v0.9.1-0.20250523060157-0ea5ed0382a2"
           },
           {
             "name": "github.com/opencontainers/selinux",
+            "purl": "",
             "version": "v1.13.1"
           },
           {
             "name": "github.com/openshift/imagebuilder",
+            "purl": "",
             "version": "v1.2.19"
           },
           {
             "name": "github.com/pelletier/go-toml/v2",
+            "purl": "",
             "version": "v2.2.4"
           },
           {
             "name": "github.com/pkg/errors",
+            "purl": "",
             "version": "v0.0.0-20170505043639-c605e284fe17"
           },
           {
             "name": "github.com/pkg/sftp",
+            "purl": "",
             "version": "v1.13.9"
           },
           {
             "name": "github.com/planetscale/vtprotobuf",
+            "purl": "",
             "version": "v0.6.1-0.20240319094008-0393e58bdf10"
           },
           {
             "name": "github.com/pmezard/go-difflib",
+            "purl": "",
             "version": "v1.0.1-0.20181226105442-5d4384ee4fb2"
           },
           {
             "name": "github.com/proglottis/gpgme",
+            "purl": "",
             "version": "v0.1.5"
           },
           {
             "name": "github.com/prometheus/client_golang",
-            "version": "v1.23.2"
+            "purl": "",
+            "version": "v1.24.1"
           },
           {
             "name": "github.com/prometheus/client_model",
+            "purl": "",
             "version": "v0.6.2"
           },
           {
             "name": "github.com/prometheus/common",
-            "version": "v0.66.1"
+            "purl": "",
+            "version": "v0.70.1"
           },
           {
             "name": "github.com/prometheus/procfs",
-            "version": "v0.17.0"
+            "purl": "",
+            "version": "v0.21.1"
           },
           {
             "name": "github.com/quic-go/qpack",
+            "purl": "",
             "version": "v0.6.0"
           },
           {
             "name": "github.com/quic-go/quic-go",
+            "purl": "",
             "version": "v0.59.1"
           },
           {
             "name": "github.com/rivo/uniseg",
+            "purl": "",
             "version": "v0.4.7"
           },
           {
             "name": "github.com/rs/zerolog",
+            "purl": "",
             "version": "v1.35.1"
           },
           {
             "name": "github.com/rubyist/tracerx",
+            "purl": "",
             "version": "v0.0.0-20170927163412-787959303086"
           },
           {
             "name": "github.com/secure-systems-lab/go-securesystemslib",
+            "purl": "",
             "version": "v0.9.1"
           },
           {
             "name": "github.com/segmentio/ksuid",
+            "purl": "",
             "version": "v1.0.4"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
+            "purl": "",
             "version": "v4.25.9"
           },
           {
             "name": "github.com/sigstore/fulcio",
+            "purl": "",
             "version": "v1.7.1"
           },
           {
             "name": "github.com/sigstore/protobuf-specs",
+            "purl": "",
             "version": "v0.4.1"
           },
           {
             "name": "github.com/sigstore/sigstore",
+            "purl": "",
             "version": "v1.9.5"
           },
           {
             "name": "github.com/sirupsen/logrus",
+            "purl": "",
             "version": "v1.9.4"
           },
           {
             "name": "github.com/skeema/knownhosts",
+            "purl": "",
             "version": "v1.3.2"
           },
           {
             "name": "github.com/skratchdot/open-golang",
+            "purl": "",
             "version": "v0.0.0-20200116055534-eef842397966"
           },
           {
             "name": "github.com/smallstep/pkcs7",
+            "purl": "",
             "version": "v0.1.1"
           },
           {
             "name": "github.com/spf13/cobra",
+            "purl": "",
             "version": "v1.7.0"
           },
           {
             "name": "github.com/spf13/pflag",
+            "purl": "",
             "version": "v1.0.5"
           },
           {
             "name": "github.com/ssgelm/cookiejarparser",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/stefanberger/go-pkcs11uri",
+            "purl": "",
             "version": "v0.0.0-20230803200340-78284954bff6"
           },
           {
             "name": "github.com/swaggo/files",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "github.com/swaggo/gin-swagger",
+            "purl": "",
             "version": "v1.6.1"
           },
           {
             "name": "github.com/swaggo/swag",
+            "purl": "",
             "version": "v1.16.6"
           },
           {
             "name": "github.com/sylabs/sif/v2",
+            "purl": "",
             "version": "v2.22.0"
           },
           {
             "name": "github.com/syndtr/goleveldb",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "github.com/tchap/go-patricia/v2",
+            "purl": "",
             "version": "v2.3.3"
           },
           {
             "name": "github.com/tink-crypto/tink-go/v2",
+            "purl": "",
             "version": "v2.7.0"
           },
           {
             "name": "github.com/titanous/rocacheck",
+            "purl": "",
             "version": "v0.0.0-20171023193734-afe73141d399"
           },
           {
             "name": "github.com/tklauser/go-sysconf",
+            "purl": "",
             "version": "v0.3.15"
           },
           {
             "name": "github.com/ugorji/go/codec",
+            "purl": "",
             "version": "v1.3.1"
           },
           {
             "name": "github.com/ulikunitz/xz",
+            "purl": "",
             "version": "v0.5.15"
           },
           {
             "name": "github.com/urfave/cli/v3",
+            "purl": "",
             "version": "v3.10.1"
           },
           {
             "name": "github.com/valyala/fastjson",
+            "purl": "",
             "version": "v1.6.4"
           },
           {
             "name": "github.com/vbatts/tar-split",
+            "purl": "",
             "version": "v0.12.1"
           },
           {
             "name": "github.com/vbauerster/mpb/v8",
+            "purl": "",
             "version": "v8.10.2"
           },
           {
             "name": "github.com/woodpecker-ci/plugin-git",
-            "version": "v0.0.0-20260718020729-633a3c74e903"
+            "purl": "",
+            "version": "v0.0.0-20260801012100-c011ef35cdbd"
           },
           {
             "name": "github.com/x448/float16",
+            "purl": "",
             "version": "v0.8.4"
           },
           {
             "name": "github.com/xeipuuv/gojsonpointer",
+            "purl": "",
             "version": "v0.0.0-20190905194746-02993c407bfb"
           },
           {
             "name": "github.com/xeipuuv/gojsonreference",
+            "purl": "",
             "version": "v0.0.0-20180127040603-bd5ef7bd5415"
           },
           {
             "name": "github.com/xeipuuv/gojsonschema",
+            "purl": "",
             "version": "v1.2.0"
           },
           {
             "name": "github.com/xo/terminfo",
+            "purl": "",
             "version": "v0.0.0-20220910002029-abceb7e1c41e"
           },
           {
             "name": "github.com/yaronf/httpsign",
-            "version": "v0.5.1"
+            "purl": "",
+            "version": "v0.5.2"
           },
           {
             "name": "github.com/zalando/go-keyring",
+            "purl": "",
             "version": "v0.2.8"
           },
           {
             "name": "gitlab.com/gitlab-org/api/client-go/v2",
-            "version": "v2.43.0"
+            "purl": "",
+            "version": "v2.54.0"
           },
           {
             "name": "go.etcd.io/bbolt",
+            "purl": "",
             "version": "v1.4.3"
           },
           {
             "name": "go.mongodb.org/mongo-driver",
+            "purl": "",
             "version": "v1.17.7"
           },
           {
             "name": "go.mongodb.org/mongo-driver/v2",
+            "purl": "",
             "version": "v2.5.0"
           },
           {
             "name": "go.opentelemetry.io/auto/sdk",
+            "purl": "",
             "version": "v1.1.0"
           },
           {
             "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+            "purl": "",
             "version": "v0.61.0"
           },
           {
             "name": "go.opentelemetry.io/otel",
+            "purl": "",
             "version": "v1.36.0"
           },
           {
             "name": "go.opentelemetry.io/otel/metric",
+            "purl": "",
             "version": "v1.36.0"
           },
           {
             "name": "go.opentelemetry.io/otel/trace",
+            "purl": "",
             "version": "v1.36.0"
           },
           {
             "name": "go.podman.io/common",
+            "purl": "",
             "version": "v0.67.1"
           },
           {
             "name": "go.podman.io/image/v5",
+            "purl": "",
             "version": "v5.39.2"
           },
           {
             "name": "go.podman.io/storage",
+            "purl": "",
             "version": "v1.62.0"
           },
           {
             "name": "go.uber.org/multierr",
+            "purl": "",
             "version": "v1.11.0"
           },
           {
             "name": "go.woodpecker-ci.org/woodpecker/v3",
-            "version": "v3.16.0"
+            "purl": "",
+            "version": "v3.17.0"
           },
           {
             "name": "go.yaml.in/yaml/v2",
+            "purl": "",
             "version": "v2.4.2"
           },
           {
             "name": "go.yaml.in/yaml/v3",
+            "purl": "",
             "version": "v3.0.4"
           },
           {
             "name": "go.yaml.in/yaml/v4",
+            "purl": "",
             "version": "v4.0.0-rc.6"
           },
           {
             "name": "golang.org/x/crypto",
+            "purl": "",
             "version": "v0.21.0"
           },
           {
             "name": "golang.org/x/image",
-            "version": "v0.43.0"
+            "purl": "",
+            "version": "v0.44.0"
           },
           {
             "name": "golang.org/x/mod",
+            "purl": "",
             "version": "v0.36.0"
           },
           {
             "name": "golang.org/x/net",
+            "purl": "",
             "version": "v0.23.0"
           },
           {
             "name": "golang.org/x/oauth2",
+            "purl": "",
             "version": "v0.32.0"
           },
           {
             "name": "golang.org/x/sync",
+            "purl": "",
             "version": "v0.1.0"
           },
           {
             "name": "golang.org/x/sys",
+            "purl": "",
             "version": "v0.46.0"
           },
           {
             "name": "golang.org/x/term",
+            "purl": "",
             "version": "v0.44.0"
           },
           {
             "name": "golang.org/x/text",
+            "purl": "",
             "version": "v0.14.0"
           },
           {
             "name": "golang.org/x/time",
+            "purl": "",
             "version": "v0.11.0"
           },
           {
             "name": "golang.org/x/tools",
-            "version": "v0.45.0"
+            "purl": "",
+            "version": "v0.47.0"
           },
           {
             "name": "google.golang.org/genproto/googleapis/api",
+            "purl": "",
             "version": "v0.0.0-20250414145226-207652e42e2e"
           },
           {
             "name": "google.golang.org/genproto/googleapis/rpc",
+            "purl": "",
             "version": "v0.0.0-20250414145226-207652e42e2e"
           },
           {
             "name": "google.golang.org/grpc",
+            "purl": "",
             "version": "v1.72.2"
           },
           {
             "name": "google.golang.org/protobuf",
+            "purl": "",
             "version": "v1.36.9"
           },
           {
             "name": "gopkg.in/evanphx/json-patch.v4",
+            "purl": "",
             "version": "v4.13.0"
           },
           {
             "name": "gopkg.in/inf.v0",
+            "purl": "",
             "version": "v0.9.1"
           },
           {
             "name": "gopkg.in/tomb.v1",
+            "purl": "",
             "version": "v1.0.0-20141024135613-dd632973f1e7"
           },
           {
             "name": "gopkg.in/yaml.v3",
+            "purl": "",
             "version": "v3.0.1"
           },
           {
             "name": "k8s.io/api",
-            "version": "v0.36.2"
+            "purl": "",
+            "version": "v0.36.3"
           },
           {
             "name": "k8s.io/apimachinery",
-            "version": "v0.36.2"
+            "purl": "",
+            "version": "v0.36.3"
           },
           {
             "name": "k8s.io/client-go",
-            "version": "v0.36.2"
+            "purl": "",
+            "version": "v0.36.3"
           },
           {
             "name": "k8s.io/klog/v2",
+            "purl": "",
             "version": "v2.140.0"
           },
           {
             "name": "k8s.io/kube-openapi",
+            "purl": "",
             "version": "v0.0.0-20260317180543-43fb72c5454a"
           },
           {
             "name": "k8s.io/utils",
+            "purl": "",
             "version": "v0.0.0-20260210185600-b8788abfbbc2"
           },
           {
             "name": "sigs.k8s.io/json",
+            "purl": "",
             "version": "v0.0.0-20250730193827-2d320260d730"
           },
           {
             "name": "sigs.k8s.io/randfill",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "sigs.k8s.io/structured-merge-diff/v6",
-            "version": "v6.3.2"
+            "purl": "",
+            "version": "v6.3.3"
           },
           {
             "name": "sigs.k8s.io/yaml",
+            "purl": "",
             "version": "v1.6.0"
           },
           {
             "name": "src.techknowlogick.com/xormigrate",
+            "purl": "",
             "version": "v1.7.1"
           },
           {
             "name": "stdlib",
+            "purl": "",
             "version": "v1.25.12"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
+            "purl": "",
             "version": "v1.0.1"
           },
           {
             "name": "tags.cncf.io/container-device-interface/specs-go",
+            "purl": "",
             "version": "v1.0.0"
           },
           {
             "name": "xorm.io/builder",
+            "purl": "",
             "version": "v0.3.13"
           },
           {
             "name": "xorm.io/xorm",
-            "version": "v1.3.11"
+            "purl": "",
+            "version": "v1.4.1"
           }
         ],
         "java": [],
@@ -1686,10 +2319,12 @@
         "python": [
           {
             "name": "example",
+            "purl": "",
             "version": "21.12"
           },
           {
             "name": "packaging",
+            "purl": "",
             "version": "26.2"
           }
         ],
@@ -1697,42 +2332,52 @@
         "rust": [
           {
             "name": "autocfg",
+            "purl": "",
             "version": "1.4.0"
           },
           {
             "name": "cc",
+            "purl": "",
             "version": "1.1.15"
           },
           {
             "name": "libc",
+            "purl": "",
             "version": "0.2.158"
           },
           {
             "name": "libgit",
+            "purl": "",
             "version": "0.1.0"
           },
           {
             "name": "libgit-sys",
+            "purl": "",
             "version": "0.1.0"
           },
           {
             "name": "libz-sys",
+            "purl": "",
             "version": "1.1.20"
           },
           {
             "name": "make-cmd",
+            "purl": "",
             "version": "0.1.0"
           },
           {
             "name": "pkg-config",
+            "purl": "",
             "version": "0.3.30"
           },
           {
             "name": "shlex",
+            "purl": "",
             "version": "1.3.0"
           },
           {
             "name": "vcpkg",
+            "purl": "",
             "version": "0.2.15"
           }
         ]
