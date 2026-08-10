@@ -5,7 +5,6 @@
 ARG BASE_VERSION=15.1
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS frontend-builder
 RUN pkg update && pkg install -y node22 npm-node22 git ca_root_nss
-RUN npm install -g pnpm
 ARG VERSION=latest
 RUN if [ "$VERSION" = "latest" ]; then \
       VERSION=$(fetch -qo - https://api.github.com/repos/woodpecker-ci/woodpecker/releases/latest | jq -r .tag_name); \
@@ -13,7 +12,10 @@ RUN if [ "$VERSION" = "latest" ]; then \
     echo "$VERSION" > /version.txt && \
     git clone --depth 1 --branch ${VERSION} https://github.com/woodpecker-ci/woodpecker.git /src
 WORKDIR /src/web
-RUN pnpm install --frozen-lockfile && pnpm build
+# Pin exact pnpm version -- "latest" delegates to a FreeBSD @pnpm/exe binary that doesn't exist.
+RUN PNPM_VERSION=$(jq -r '.packageManager' package.json | sed 's/^pnpm@//') && \
+    npm install -g "pnpm@${PNPM_VERSION}" && \
+    pnpm install --frozen-lockfile && pnpm build
 
 # Stage 2: Build the backend (Server, Agent, CLI, plugin-git)
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS backend-builder
