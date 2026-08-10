@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-01T19:45:35Z",
+  "generated": "2026-08-10T11:00:30Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.17.0",
       "arch": "amd64",
-      "generated": "2026-08-01T19:41:54Z",
+      "generated": "2026-08-10T10:58:12Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -624,7 +624,7 @@
               "GPLv1+"
             ],
             "name": "perl5",
-            "version": "5.42.2"
+            "version": "5.42.3"
           },
           {
             "licenses": [
@@ -2015,7 +2015,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260801012100-c011ef35cdbd"
+            "version": "v0.0.0-20260805160315-8df6914e1f6b"
           },
           {
             "name": "github.com/x448/float16",
