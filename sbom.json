@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-10T11:00:30Z",
+  "generated": "2026-08-19T22:18:48Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.17.0",
       "arch": "amd64",
-      "generated": "2026-08-10T10:58:12Z",
+      "generated": "2026-08-19T22:17:41Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -245,21 +245,21 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.125"
+            "version": "3.126.1"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "conmon",
-            "version": "2.2.1_5"
+            "version": "2.2.1_6"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "containernetworking-plugins",
-            "version": "0.6_15"
+            "version": "0.6_16"
           },
           {
             "licenses": [
@@ -316,7 +316,7 @@
               "MIT"
             ],
             "name": "git-lfs",
-            "version": "3.6.1_19"
+            "version": "3.6.1_20"
           },
           {
             "licenses": [
@@ -594,7 +594,7 @@
               "MPL20"
             ],
             "name": "p5-Mozilla-CA",
-            "version": "20250602"
+            "version": "20260813"
           },
           {
             "licenses": [
@@ -652,7 +652,7 @@
               "APACHE20"
             ],
             "name": "podman",
-            "version": "5.8.4_1"
+            "version": "5.8.4_2"
           },
           {
             "licenses": [
@@ -667,7 +667,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.13_3"
+            "version": "3.12.13_4"
           },
           {
             "licenses": [
@@ -1995,7 +1995,7 @@
           {
             "name": "github.com/urfave/cli/v3",
             "purl": "",
-            "version": "v3.10.1"
+            "version": "v3.11.0"
           },
           {
             "name": "github.com/valyala/fastjson",
@@ -2015,7 +2015,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260805160315-8df6914e1f6b"
+            "version": "v0.0.0-20260819063424-daa80a7362b7"
           },
           {
             "name": "github.com/x448/float16",
@@ -2290,7 +2290,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.25.12"
+            "version": "v1.25.13"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
