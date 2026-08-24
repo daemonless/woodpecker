@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-19T22:18:48Z",
+  "generated": "2026-08-24T14:15:53Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
-      "app_version": "v3.17.0",
+      "app_version": "v3.18.0",
       "arch": "amd64",
-      "generated": "2026-08-19T22:17:41Z",
+      "generated": "2026-08-24T14:14:36Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -245,21 +245,21 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.126.1"
+            "version": "3.127"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "conmon",
-            "version": "2.2.1_6"
+            "version": "2.2.1_7"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "containernetworking-plugins",
-            "version": "0.6_16"
+            "version": "0.6_17"
           },
           {
             "licenses": [
@@ -316,7 +316,7 @@
               "MIT"
             ],
             "name": "git-lfs",
-            "version": "3.6.1_20"
+            "version": "3.6.1_21"
           },
           {
             "licenses": [
@@ -652,7 +652,7 @@
               "APACHE20"
             ],
             "name": "podman",
-            "version": "5.8.4_2"
+            "version": "5.8.4_3"
           },
           {
             "licenses": [
@@ -667,7 +667,7 @@
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.13_4"
+            "version": "3.12.14"
           },
           {
             "licenses": [
@@ -1040,7 +1040,7 @@
           {
             "name": "github.com/docker/cli",
             "purl": "",
-            "version": "v29.7.0+incompatible"
+            "version": "v29.7.2+incompatible"
           },
           {
             "name": "github.com/docker/distribution",
@@ -1353,9 +1353,9 @@
             "version": "v0.20.6"
           },
           {
-            "name": "github.com/google/go-github/v89",
+            "name": "github.com/google/go-github/v90",
             "purl": "",
-            "version": "v89.0.0"
+            "version": "v90.0.0"
           },
           {
             "name": "github.com/google/go-intervals",
@@ -1970,7 +1970,7 @@
           {
             "name": "github.com/tink-crypto/tink-go/v2",
             "purl": "",
-            "version": "v2.7.0"
+            "version": "v2.8.0"
           },
           {
             "name": "github.com/titanous/rocacheck",
@@ -2015,7 +2015,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260819063424-daa80a7362b7"
+            "version": "v0.0.0-20260822011930-fa95df9a8f29"
           },
           {
             "name": "github.com/x448/float16",
@@ -2055,7 +2055,7 @@
           {
             "name": "gitlab.com/gitlab-org/api/client-go/v2",
             "purl": "",
-            "version": "v2.54.0"
+            "version": "v2.58.2"
           },
           {
             "name": "go.etcd.io/bbolt",
@@ -2120,7 +2120,7 @@
           {
             "name": "go.woodpecker-ci.org/woodpecker/v3",
             "purl": "",
-            "version": "v3.17.0"
+            "version": "v3.18.0"
           },
           {
             "name": "go.yaml.in/yaml/v2",
@@ -2130,7 +2130,7 @@
           {
             "name": "go.yaml.in/yaml/v3",
             "purl": "",
-            "version": "v3.0.4"
+            "version": "v3.0.5"
           },
           {
             "name": "go.yaml.in/yaml/v4",
@@ -2145,7 +2145,7 @@
           {
             "name": "golang.org/x/image",
             "purl": "",
-            "version": "v0.44.0"
+            "version": "v0.45.0"
           },
           {
             "name": "golang.org/x/mod",
@@ -2190,7 +2190,7 @@
           {
             "name": "golang.org/x/tools",
             "purl": "",
-            "version": "v0.47.0"
+            "version": "v0.49.0"
           },
           {
             "name": "google.golang.org/genproto/googleapis/api",
@@ -2235,17 +2235,17 @@
           {
             "name": "k8s.io/api",
             "purl": "",
-            "version": "v0.36.3"
+            "version": "v0.36.4"
           },
           {
             "name": "k8s.io/apimachinery",
             "purl": "",
-            "version": "v0.36.3"
+            "version": "v0.36.4"
           },
           {
             "name": "k8s.io/client-go",
             "purl": "",
-            "version": "v0.36.3"
+            "version": "v0.36.4"
           },
           {
             "name": "k8s.io/klog/v2",
@@ -2290,7 +2290,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.25.13"
+            "version": "v1.25.14"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
