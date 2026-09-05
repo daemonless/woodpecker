@@ -51,8 +51,11 @@ services:
     ports:
       - "8000:8000"
       - "9000:9000"
-    restart: unless-stopped
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
+    restart: always
 ```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
 
 ### AppJail Director
 **.env**:
@@ -120,6 +123,9 @@ ARG tag=latest
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/woodpecker:${tag}
 ```
+
+Save the files above, then run `appjail-director up`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
@@ -142,6 +148,8 @@ podman run -d --name woodpecker \
   -v /path/to/containers/woodpecker:/config \
   ghcr.io/daemonless/woodpecker:latest
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
@@ -167,7 +175,54 @@ appjail oci run -Pd \
   -o fstab="/path/to/containers/woodpecker /config <pseudofs>" \
   ghcr.io/daemonless/woodpecker:latest woodpecker
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+### Bastille
+
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+
+```yaml
+services:
+  woodpecker:
+    image: "ghcr.io/daemonless/woodpecker:latest"
+    container_name: woodpecker
+    network_mode: host  # jail shares host networking
+    environment:
+      - WOODPECKER_SERVER_ENABLE=true
+      - WOODPECKER_DATABASE_DRIVER=sqlite3
+      - WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
+      - WOODPECKER_AGENT_SECRET=agent-secret
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - WOODPECKER_AGENT_ENABLE=
+      - WOODPECKER_HOST=
+      - WOODPECKER_GITEA=
+      - WOODPECKER_GITEA_URL=
+```
+
+Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+
+```bash
+bastille create -O \
+  --env WOODPECKER_SERVER_ENABLE=true \
+  --env WOODPECKER_DATABASE_DRIVER=sqlite3 \
+  --env WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite \
+  --env WOODPECKER_AGENT_SECRET=agent-secret \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=UTC \
+  --env WOODPECKER_AGENT_ENABLE= \
+  --env WOODPECKER_HOST= \
+  --env WOODPECKER_GITEA= \
+  --env WOODPECKER_GITEA_URL= \
+  --data-path /path/to/containers/woodpecker \
+  woodpecker ghcr.io/daemonless/woodpecker:latest inherit
+```
 
 ### Ansible
 
@@ -196,6 +251,8 @@ appjail oci run -Pd \
     volumes:
       - "/path/to/containers/woodpecker:/config"
 ```
+
+Save as `woodpecker-deploy.yaml`, then run `ansible-playbook woodpecker-deploy.yaml`.
 
 Access at: `http://localhost:8000`
 

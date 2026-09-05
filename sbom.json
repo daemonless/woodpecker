@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-24T14:15:53Z",
+  "generated": "2026-09-05T13:48:44Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.18.0",
       "arch": "amd64",
-      "generated": "2026-08-24T14:14:36Z",
+      "generated": "2026-09-05T13:47:40Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -147,7 +147,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-openssl-lib",
-            "version": "15.1"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -175,7 +175,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p2"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -245,7 +245,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.127"
+            "version": "3.128"
           },
           {
             "licenses": [
@@ -2015,7 +2015,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260822011930-fa95df9a8f29"
+            "version": "v0.0.0-20260902014932-117c5c8c5bcb"
           },
           {
             "name": "github.com/x448/float16",
