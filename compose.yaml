@@ -10,7 +10,6 @@ x-daemonless:
   user: "bsd"
   mlock: false
   upstream_binary: true
-  type: stack
   # The agent is a second jail from the same image in the AppJail director
   # bundle; host networking so it reaches the server's GRPC port on
   # localhost, as under podman.
