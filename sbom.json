@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-05T13:48:44Z",
+  "generated": "2026-09-12T18:20:24Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
-      "app_version": "v3.18.0",
+      "app_version": "v3.18.1",
       "arch": "amd64",
-      "generated": "2026-09-05T13:47:40Z",
+      "generated": "2026-09-12T18:19:26Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -245,7 +245,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.128"
+            "version": "3.129"
           },
           {
             "licenses": [
@@ -710,7 +710,7 @@
           {
             "name": "al.essio.dev/pkg/shellescape",
             "purl": "",
-            "version": "v1.6.0"
+            "version": "v1.6.1"
           },
           {
             "name": "charm.land/bubbles/v2",
@@ -1040,7 +1040,7 @@
           {
             "name": "github.com/docker/cli",
             "purl": "",
-            "version": "v29.7.2+incompatible"
+            "version": "v29.8.0+incompatible"
           },
           {
             "name": "github.com/docker/distribution",
@@ -1085,7 +1085,7 @@
           {
             "name": "github.com/dunglas/httpsfv",
             "purl": "",
-            "version": "v1.0.2"
+            "version": "v1.1.1"
           },
           {
             "name": "github.com/dustin/go-humanize",
@@ -1125,7 +1125,7 @@
           {
             "name": "github.com/fxamacker/cbor/v2",
             "purl": "",
-            "version": "v2.9.0"
+            "version": "v2.9.1"
           },
           {
             "name": "github.com/gabriel-vasile/mimetype",
@@ -1210,12 +1210,12 @@
           {
             "name": "github.com/go-openapi/jsonpointer",
             "purl": "",
-            "version": "v0.22.5"
+            "version": "v1.0.0"
           },
           {
             "name": "github.com/go-openapi/jsonreference",
             "purl": "",
-            "version": "v0.21.4"
+            "version": "v1.0.0"
           },
           {
             "name": "github.com/go-openapi/spec",
@@ -1230,22 +1230,22 @@
           {
             "name": "github.com/go-openapi/swag",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/cmdutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/conv",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/fileutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/jsonname",
@@ -1255,37 +1255,42 @@
           {
             "name": "github.com/go-openapi/swag/jsonutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/loading",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/mangling",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/netutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
+          },
+          {
+            "name": "github.com/go-openapi/swag/pools",
+            "purl": "",
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/stringutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/typeutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-openapi/swag/yamlutils",
             "purl": "",
-            "version": "v0.25.4"
+            "version": "v0.27.1"
           },
           {
             "name": "github.com/go-playground/locales",
@@ -1305,7 +1310,7 @@
           {
             "name": "github.com/go-sql-driver/mysql",
             "purl": "",
-            "version": "v1.10.0"
+            "version": "v1.10.1"
           },
           {
             "name": "github.com/go-viper/mapstructure/v2",
@@ -1353,9 +1358,9 @@
             "version": "v0.20.6"
           },
           {
-            "name": "github.com/google/go-github/v90",
+            "name": "github.com/google/go-github/v91",
             "purl": "",
-            "version": "v90.0.0"
+            "version": "v91.0.0"
           },
           {
             "name": "github.com/google/go-intervals",
@@ -1530,7 +1535,7 @@
           {
             "name": "github.com/lestrrat-go/dsig",
             "purl": "",
-            "version": "v1.0.0"
+            "version": "v1.4.0"
           },
           {
             "name": "github.com/lestrrat-go/httpcc",
@@ -1650,12 +1655,12 @@
           {
             "name": "github.com/moby/moby/api",
             "purl": "",
-            "version": "v1.55.0"
+            "version": "v1.56.0"
           },
           {
             "name": "github.com/moby/moby/client",
             "purl": "",
-            "version": "v0.5.1"
+            "version": "v0.6.0"
           },
           {
             "name": "github.com/moby/patternmatcher",
@@ -2000,7 +2005,7 @@
           {
             "name": "github.com/valyala/fastjson",
             "purl": "",
-            "version": "v1.6.4"
+            "version": "v1.6.10"
           },
           {
             "name": "github.com/vbatts/tar-split",
@@ -2015,7 +2020,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260902014932-117c5c8c5bcb"
+            "version": "v0.0.0-20260908230913-d88bfe670ece"
           },
           {
             "name": "github.com/x448/float16",
@@ -2055,7 +2060,7 @@
           {
             "name": "gitlab.com/gitlab-org/api/client-go/v2",
             "purl": "",
-            "version": "v2.58.2"
+            "version": "v2.64.0"
           },
           {
             "name": "go.etcd.io/bbolt",
@@ -2120,7 +2125,7 @@
           {
             "name": "go.woodpecker-ci.org/woodpecker/v3",
             "purl": "",
-            "version": "v3.18.0"
+            "version": "v3.18.1"
           },
           {
             "name": "go.yaml.in/yaml/v2",
@@ -2235,17 +2240,17 @@
           {
             "name": "k8s.io/api",
             "purl": "",
-            "version": "v0.36.4"
+            "version": "v0.37.0"
           },
           {
             "name": "k8s.io/apimachinery",
             "purl": "",
-            "version": "v0.36.4"
+            "version": "v0.37.0"
           },
           {
             "name": "k8s.io/client-go",
             "purl": "",
-            "version": "v0.36.4"
+            "version": "v0.37.0"
           },
           {
             "name": "k8s.io/klog/v2",
@@ -2255,12 +2260,12 @@
           {
             "name": "k8s.io/kube-openapi",
             "purl": "",
-            "version": "v0.0.0-20260317180543-43fb72c5454a"
+            "version": "v0.0.0-20260721132016-d427ff9ee9ad"
           },
           {
             "name": "k8s.io/utils",
             "purl": "",
-            "version": "v0.0.0-20260210185600-b8788abfbbc2"
+            "version": "v0.0.0-20260626114624-be93311217bd"
           },
           {
             "name": "sigs.k8s.io/json",
@@ -2275,7 +2280,7 @@
           {
             "name": "sigs.k8s.io/structured-merge-diff/v6",
             "purl": "",
-            "version": "v6.3.3"
+            "version": "v6.4.2"
           },
           {
             "name": "sigs.k8s.io/yaml",
@@ -2386,14 +2391,14 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 96,
-        "go": 321,
+        "go": 322,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 2,
         "ruby": 0,
         "rust": 10,
-        "total": 429
+        "total": 430
       }
     }
   }

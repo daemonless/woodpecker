@@ -7,6 +7,7 @@ Source: dbuild templates
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/woodpecker/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/woodpecker/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/daemonless/woodpecker?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/woodpecker/commits)
+[![OCI Pulls](https://img.shields.io/docker/pulls/daemonless/woodpecker?style=flat-square&label=OCI+Pulls&color=blue)](https://hub.docker.com/r/daemonless/woodpecker)
 
 Lightweight CI/CD pipeline server with a built-in agent — integrates with Gitea, GitHub, and GitLab for automated builds and deployments.
 
@@ -36,14 +37,16 @@ services:
     container_name: woodpecker
     environment:
       - WOODPECKER_SERVER_ENABLE=true  # Enable Woodpecker Server (true/false)
+      - WOODPECKER_HOST=${WOODPECKER_HOST}  # The external URL of this server, e.g. https://ci.example.com
       - WOODPECKER_DATABASE_DRIVER=sqlite3  # Database driver (sqlite3 or postgres)
       - WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite  # Database connection string or file path
-      - WOODPECKER_AGENT_SECRET=agent-secret  # Shared secret for server-agent communication
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}  # Shared secret for server-agent communication
       - PUID=1000
       - PGID=1000
-      - TZ=UTC
+      - TZ=${TZ:-UTC}  # Timezone for the containers
+      - SERVER_DATA_LOCATION=  # Path to store the server's data (database, logs)
+      - AGENT_DATA_LOCATION=  # Path to store the agent's data
       - WOODPECKER_AGENT_ENABLE=  # Enable Woodpecker Agent (true/false)
-      - WOODPECKER_HOST=  # The external host address
       - WOODPECKER_GITEA=  # Enable Gitea authentication (true/false)
       - WOODPECKER_GITEA_URL=  # The URL of the Gitea server
     volumes:
@@ -65,14 +68,16 @@ Save as `compose.yaml`, then run `podman-compose up -d`.
 
 DIRECTOR_PROJECT=woodpecker
 WOODPECKER_SERVER_ENABLE=true
+WOODPECKER_HOST=${WOODPECKER_HOST}
 WOODPECKER_DATABASE_DRIVER=sqlite3
 WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
-WOODPECKER_AGENT_SECRET=agent-secret
+WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
 PUID=1000
 PGID=1000
-TZ=UTC
+TZ=${TZ:-UTC}
+SERVER_DATA_LOCATION=
+AGENT_DATA_LOCATION=
 WOODPECKER_AGENT_ENABLE=
-WOODPECKER_HOST=
 WOODPECKER_GITEA=
 WOODPECKER_GITEA_URL=
 ```
@@ -83,34 +88,53 @@ WOODPECKER_GITEA_URL=
 # appjail-director.yml
 
 options:
-  - virtualnet: ':<random> default'
-  - nat:
+  - alias:
+  - ip4_inherit:
 services:
   woodpecker:
     name: woodpecker
     options:
-      - container: 'boot args:--pull'
+      - container: 'args:--pull'
       - expose: '8000:8000 proto:tcp'
       - expose: '9000:9000 proto:tcp'
     oci:
       user: root
       environment:
         - WOODPECKER_SERVER_ENABLE: !ENV '${WOODPECKER_SERVER_ENABLE}'
+        - WOODPECKER_HOST: !ENV '${WOODPECKER_HOST}'
         - WOODPECKER_DATABASE_DRIVER: !ENV '${WOODPECKER_DATABASE_DRIVER}'
         - WOODPECKER_DATABASE_DATASOURCE: !ENV '${WOODPECKER_DATABASE_DATASOURCE}'
         - WOODPECKER_AGENT_SECRET: !ENV '${WOODPECKER_AGENT_SECRET}'
         - PUID: !ENV '${PUID}'
         - PGID: !ENV '${PGID}'
         - TZ: !ENV '${TZ}'
+        - SERVER_DATA_LOCATION: !ENV '${SERVER_DATA_LOCATION}'
+        - AGENT_DATA_LOCATION: !ENV '${AGENT_DATA_LOCATION}'
         - WOODPECKER_AGENT_ENABLE: !ENV '${WOODPECKER_AGENT_ENABLE}'
-        - WOODPECKER_HOST: !ENV '${WOODPECKER_HOST}'
         - WOODPECKER_GITEA: !ENV '${WOODPECKER_GITEA}'
         - WOODPECKER_GITEA_URL: !ENV '${WOODPECKER_GITEA_URL}'
     volumes:
       - woodpecker: /config
+  woodpecker-agent:
+    name: woodpecker_agent
+    options:
+      - from: ghcr.io/daemonless/woodpecker:latest
+      - template: !ENV '${PWD}/template.conf'
+    oci:
+      environment:
+        - WOODPECKER_AGENT_ENABLE: "true"
+        - WOODPECKER_SERVER: "localhost:9000"
+        - WOODPECKER_AGENT_SECRET: !ENV '${WOODPECKER_AGENT_SECRET}'
+        - PUID: "1000"
+        - PGID: "1000"
+        - TZ: !ENV '${TZ}'
+    volumes:
+      - agent_data: /config
 volumes:
   woodpecker:
     device: '/path/to/containers/woodpecker'
+  agent_data:
+    device: !ENV '${AGENT_DATA_LOCATION}'
 ```
 
 **Makejail**:
@@ -120,13 +144,18 @@ volumes:
 
 ARG tag=latest
 
+OPTION container=boot
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/woodpecker:${tag}
 ```
 
 Save the files above, then run `appjail-director up`.
 
-**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
 ### Podman CLI
 
@@ -135,14 +164,16 @@ podman run -d --name woodpecker \
   -p 8000:8000 \
   -p 9000:9000 \
   -e WOODPECKER_SERVER_ENABLE=true \
+  -e WOODPECKER_HOST=${WOODPECKER_HOST} \
   -e WOODPECKER_DATABASE_DRIVER=sqlite3 \
   -e WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite \
-  -e WOODPECKER_AGENT_SECRET=agent-secret \
+  -e WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET} \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=UTC \
+  -e TZ=${TZ:-UTC} \
+  -e SERVER_DATA_LOCATION= \
+  -e AGENT_DATA_LOCATION= \
   -e WOODPECKER_AGENT_ENABLE= \
-  -e WOODPECKER_HOST= \
   -e WOODPECKER_GITEA= \
   -e WOODPECKER_GITEA_URL= \
   -v /path/to/containers/woodpecker:/config \
@@ -153,6 +184,7 @@ Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
+
 ```bash
 appjail oci run -Pd \
   -o overwrite=force \
@@ -162,23 +194,29 @@ appjail oci run -Pd \
   -o expose="8000:8000 proto:tcp" \
   -o expose="9000:9000 proto:tcp" \
   -e WOODPECKER_SERVER_ENABLE=true \
+  -e WOODPECKER_HOST=${WOODPECKER_HOST} \
   -e WOODPECKER_DATABASE_DRIVER=sqlite3 \
   -e WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite \
-  -e WOODPECKER_AGENT_SECRET=agent-secret \
+  -e WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET} \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=UTC \
+  -e TZ=${TZ:-UTC} \
+  -e SERVER_DATA_LOCATION= \
+  -e AGENT_DATA_LOCATION= \
   -e WOODPECKER_AGENT_ENABLE= \
-  -e WOODPECKER_HOST= \
   -e WOODPECKER_GITEA= \
   -e WOODPECKER_GITEA_URL= \
   -o fstab="/path/to/containers/woodpecker /config <pseudofs>" \
   ghcr.io/daemonless/woodpecker:latest woodpecker
 ```
 
-Save as `run.sh`, then run `sh run.sh`.
+Save the files above, then run `sh run.sh`.
 
-**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
 ### Bastille
 
@@ -194,14 +232,16 @@ services:
       - mode: host
     environment:
       - WOODPECKER_SERVER_ENABLE=true
+      - WOODPECKER_HOST=${WOODPECKER_HOST}
       - WOODPECKER_DATABASE_DRIVER=sqlite3
       - WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
-      - WOODPECKER_AGENT_SECRET=agent-secret
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
       - PUID=1000
       - PGID=1000
-      - TZ=UTC
+      - TZ=${TZ:-UTC}
+      - SERVER_DATA_LOCATION=
+      - AGENT_DATA_LOCATION=
       - WOODPECKER_AGENT_ENABLE=
-      - WOODPECKER_HOST=
       - WOODPECKER_GITEA=
       - WOODPECKER_GITEA_URL=
     volumes:
@@ -213,14 +253,16 @@ Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
 ```bash
 bastille create -O \
   --env WOODPECKER_SERVER_ENABLE=true \
+  --env WOODPECKER_HOST=${WOODPECKER_HOST} \
   --env WOODPECKER_DATABASE_DRIVER=sqlite3 \
   --env WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite \
-  --env WOODPECKER_AGENT_SECRET=agent-secret \
+  --env WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET} \
   --env PUID=1000 \
   --env PGID=1000 \
-  --env TZ=UTC \
+  --env TZ=${TZ:-UTC} \
+  --env SERVER_DATA_LOCATION= \
+  --env AGENT_DATA_LOCATION= \
   --env WOODPECKER_AGENT_ENABLE= \
-  --env WOODPECKER_HOST= \
   --env WOODPECKER_GITEA= \
   --env WOODPECKER_GITEA_URL= \
   --volume /path/to/containers/woodpecker /config \
@@ -238,14 +280,16 @@ bastille create -O \
     restart_policy: always
     env:
       WOODPECKER_SERVER_ENABLE: "true"
+      WOODPECKER_HOST: "${WOODPECKER_HOST}"
       WOODPECKER_DATABASE_DRIVER: "sqlite3"
       WOODPECKER_DATABASE_DATASOURCE: "/config/woodpecker.sqlite"
-      WOODPECKER_AGENT_SECRET: "agent-secret"
+      WOODPECKER_AGENT_SECRET: "${WOODPECKER_AGENT_SECRET}"
       PUID: "1000"
       PGID: "1000"
-      TZ: "UTC"
+      TZ: "${TZ:-UTC}"
+      SERVER_DATA_LOCATION: ""
+      AGENT_DATA_LOCATION: ""
       WOODPECKER_AGENT_ENABLE: ""
-      WOODPECKER_HOST: ""
       WOODPECKER_GITEA: ""
       WOODPECKER_GITEA_URL: ""
     ports:
@@ -266,14 +310,16 @@ Access at: `http://localhost:8000`
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `WOODPECKER_SERVER_ENABLE` | `true` | Enable Woodpecker Server (true/false) |
+| `WOODPECKER_HOST` | `${WOODPECKER_HOST}` | The external URL of this server, e.g. https://ci.example.com |
 | `WOODPECKER_DATABASE_DRIVER` | `sqlite3` | Database driver (sqlite3 or postgres) |
 | `WOODPECKER_DATABASE_DATASOURCE` | `/config/woodpecker.sqlite` | Database connection string or file path |
-| `WOODPECKER_AGENT_SECRET` | `agent-secret` | Shared secret for server-agent communication |
+| `WOODPECKER_AGENT_SECRET` | `${WOODPECKER_AGENT_SECRET}` | Shared secret for server-agent communication |
 | `PUID` | `1000` |  |
 | `PGID` | `1000` |  |
-| `TZ` | `UTC` |  |
+| `TZ` | `${TZ:-UTC}` | Timezone for the containers |
+| `SERVER_DATA_LOCATION` | `` | Path to store the server's data (database, logs) |
+| `AGENT_DATA_LOCATION` | `` | Path to store the agent's data |
 | `WOODPECKER_AGENT_ENABLE` | `` | Enable Woodpecker Agent (true/false) |
-| `WOODPECKER_HOST` | `` | The external host address |
 | `WOODPECKER_GITEA` | `` | Enable Gitea authentication (true/false) |
 | `WOODPECKER_GITEA_URL` | `` | The URL of the Gitea server |
 
