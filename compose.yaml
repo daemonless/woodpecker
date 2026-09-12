@@ -10,16 +10,41 @@ x-daemonless:
   user: "bsd"
   mlock: false
   upstream_binary: true
-  appjail: true
+  type: stack
+  # The agent is a second jail from the same image in the AppJail director
+  # bundle; host networking so it reaches the server's GRPC port on
+  # localhost, as under podman.
+  appjail:
+    director:
+      options:
+        - alias:
+        - ip4_inherit:
+    depends_on:
+      - name: woodpecker-agent
+        image: ghcr.io/daemonless/woodpecker:latest
+        env:
+          WOODPECKER_AGENT_ENABLE: "true"
+          WOODPECKER_SERVER: localhost:9000
+          WOODPECKER_AGENT_SECRET: "!ENV '${WOODPECKER_AGENT_SECRET}'"
+          PUID: "1000"
+          PGID: "1000"
+          TZ: "!ENV '${TZ}'"
+        volumes:
+          agent_data: /config
 
   docs:
     env:
+      WOODPECKER_HOST: "The external URL of this server, e.g. https://ci.example.com"
+      WOODPECKER_AGENT_SECRET: "Shared secret for server-agent communication"
+      SERVER_DATA_LOCATION: "Path to store the server's data (database, logs)"
+      AGENT_DATA_LOCATION: "Path to store the agent's data"
+      TZ:
+        desc: "Timezone for the containers"
+        optional: true
       WOODPECKER_SERVER_ENABLE: "Enable Woodpecker Server (true/false)"
       WOODPECKER_AGENT_ENABLE: "Enable Woodpecker Agent (true/false)"
-      WOODPECKER_HOST: "The external host address"
       WOODPECKER_GITEA: "Enable Gitea authentication (true/false)"
       WOODPECKER_GITEA_URL: "The URL of the Gitea server"
-      WOODPECKER_AGENT_SECRET: "Shared secret for server-agent communication"
       WOODPECKER_DATABASE_DRIVER: "Database driver (sqlite3 or postgres)"
       WOODPECKER_DATABASE_DATASOURCE: "Database connection string or file path"
     volumes:
@@ -33,33 +58,34 @@ services:
     image: ghcr.io/daemonless/woodpecker:latest
     container_name: woodpecker-server
     restart: unless-stopped
+    network_mode: host
     environment:
       - WOODPECKER_SERVER_ENABLE=true
+      - WOODPECKER_HOST=${WOODPECKER_HOST}
       - WOODPECKER_DATABASE_DRIVER=sqlite3
       - WOODPECKER_DATABASE_DATASOURCE=/config/woodpecker.sqlite
-      - WOODPECKER_AGENT_SECRET=agent-secret
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
       - PUID=1000
       - PGID=1000
-      - TZ=UTC
-
+      - TZ=${TZ:-UTC}
+    env_file:
+      - .env
     volumes:
-      - /path/to/containers/woodpecker/server:/config
-
-    ports:
-      - "8000:8000"
-      - "9000:9000"
+      - ${SERVER_DATA_LOCATION}:/config
 
   woodpecker-agent:
     image: ghcr.io/daemonless/woodpecker:latest
     container_name: woodpecker-agent
     restart: unless-stopped
+    network_mode: host
+    depends_on:
+      - woodpecker-server
     environment:
       - WOODPECKER_AGENT_ENABLE=true
-      - WOODPECKER_SERVER=woodpecker-server:9000
-      - WOODPECKER_AGENT_SECRET=agent-secret
+      - WOODPECKER_SERVER=localhost:9000
+      - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
       - PUID=1000
       - PGID=1000
-      - TZ=UTC
-
+      - TZ=${TZ:-UTC}
     volumes:
-      - /path/to/containers/woodpecker/agent:/config
+      - ${AGENT_DATA_LOCATION}:/config

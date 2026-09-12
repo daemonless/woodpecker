@@ -183,14 +183,15 @@ Save as `run.sh`, then run `sh run.sh`.
 ### Bastille
 
 > [!WARNING]
-> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+> Bastille's OCI support is **experimental**. It requires `buildah` and shares the host network stack (`inherit`). Mount volumes with `--volume HOST JAIL`; without it, image-declared volumes are stored under `${bastille_volumesdir}/${jail}`.
 
 ```yaml
 services:
   woodpecker:
+    name: woodpecker
     image: "ghcr.io/daemonless/woodpecker:latest"
-    container_name: woodpecker
-    network_mode: host  # jail shares host networking
+    network:
+      - mode: host
     environment:
       - WOODPECKER_SERVER_ENABLE=true
       - WOODPECKER_DATABASE_DRIVER=sqlite3
@@ -203,9 +204,11 @@ services:
       - WOODPECKER_HOST=
       - WOODPECKER_GITEA=
       - WOODPECKER_GITEA_URL=
+    volumes:
+      - "/path/to/containers/woodpecker:/config"
 ```
 
-Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
 
 ```bash
 bastille create -O \
@@ -220,7 +223,7 @@ bastille create -O \
   --env WOODPECKER_HOST= \
   --env WOODPECKER_GITEA= \
   --env WOODPECKER_GITEA_URL= \
-  --data-path /path/to/containers/woodpecker \
+  --volume /path/to/containers/woodpecker /config \
   woodpecker ghcr.io/daemonless/woodpecker:latest inherit
 ```
 

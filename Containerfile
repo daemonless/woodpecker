@@ -18,10 +18,15 @@ RUN if [ "$VERSION" = "latest" ]; then \
     echo "$VERSION" > /version.txt && \
     git clone --depth 1 --branch ${VERSION} https://github.com/woodpecker-ci/woodpecker.git /src
 WORKDIR /src/web
-# Pin exact pnpm version -- "latest" delegates to a FreeBSD @pnpm/exe binary that doesn't exist.
-RUN PNPM_VERSION=$(jq -r '.packageManager' package.json | sed 's/^pnpm@//') && \
-    npm install -g "pnpm@${PNPM_VERSION}" && \
-    pnpm install --frozen-lockfile && pnpm build
+# pnpm >=12 is a native binary only (no FreeBSD build, no JS fallback), so when
+# upstream pins 12+ use the last JS pnpm (11.x) instead; lockfile v9 is shared.
+# --ignore-scripts skips install.js (binary fetch); --pm-on-fail=ignore stops
+# pnpm 11 from trying to switch itself to the packageManager pin.
+RUN PNPM_VERSION=$(jq -r '.packageManager' package.json | sed 's/^pnpm@//; s/+.*//') && \
+    case "${PNPM_VERSION%%.*}" in [0-9]|1[01]) ;; *) PNPM_VERSION=11 ;; esac && \
+    npm install -g --ignore-scripts "pnpm@${PNPM_VERSION}" && \
+    pnpm --pm-on-fail=ignore install --frozen-lockfile && \
+    pnpm --pm-on-fail=ignore build
 
 # Stage 2: Build the backend (Server, Agent, CLI, plugin-git)
 FROM ghcr.io/daemonless/base:${BASE_VERSION} AS backend-builder
