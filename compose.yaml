@@ -71,6 +71,9 @@ services:
       - .env
     volumes:
       - ${SERVER_DATA_LOCATION}:/config
+    ports:
+      - "8000:8000"
+      - "9000:9000"
 
   woodpecker-agent:
     image: ghcr.io/daemonless/woodpecker:latest
