@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-12T18:20:24Z",
+  "generated": "2026-09-20T23:51:55Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.18.1",
       "arch": "amd64",
-      "generated": "2026-09-12T18:19:26Z",
+      "generated": "2026-09-20T23:50:44Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -49,6 +49,13 @@
               "CDDL-1.0"
             ],
             "name": "FreeBSD-ctf-lib",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD-3-Clause"
+            ],
+            "name": "FreeBSD-dhclient",
             "version": "15.1"
           },
           {
@@ -174,6 +181,13 @@
             "licenses": [
               "BSD2CLAUSE"
             ],
+            "name": "FreeBSD-resolvconf",
+            "version": "15.1"
+          },
+          {
+            "licenses": [
+              "BSD2CLAUSE"
+            ],
             "name": "FreeBSD-runtime",
             "version": "15.1p3"
           },
@@ -273,7 +287,7 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.21.0"
+            "version": "8.22.0"
           },
           {
             "licenses": [
@@ -2000,7 +2014,7 @@
           {
             "name": "github.com/urfave/cli/v3",
             "purl": "",
-            "version": "v3.11.0"
+            "version": "v3.12.0"
           },
           {
             "name": "github.com/valyala/fastjson",
@@ -2020,7 +2034,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260908230913-d88bfe670ece"
+            "version": "v0.0.0-20260915013146-6155f679de95"
           },
           {
             "name": "github.com/x448/float16",
@@ -2390,7 +2404,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 96,
+        "freebsd": 98,
         "go": 322,
         "java": 0,
         "node": 0,
@@ -2398,7 +2412,7 @@
         "python": 2,
         "ruby": 0,
         "rust": 10,
-        "total": 430
+        "total": 432
       }
     }
   }
