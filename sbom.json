@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-20T23:51:55Z",
+  "generated": "2026-09-29T20:36:16Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.18.1",
       "arch": "amd64",
-      "generated": "2026-09-20T23:50:44Z",
+      "generated": "2026-09-29T20:35:01Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -259,7 +259,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.129"
+            "version": "3.130"
           },
           {
             "licenses": [
@@ -2014,7 +2014,7 @@
           {
             "name": "github.com/urfave/cli/v3",
             "purl": "",
-            "version": "v3.12.0"
+            "version": "v3.13.0"
           },
           {
             "name": "github.com/valyala/fastjson",
@@ -2034,7 +2034,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260915013146-6155f679de95"
+            "version": "v0.0.0-20260926045638-9f258841b3d2"
           },
           {
             "name": "github.com/x448/float16",
