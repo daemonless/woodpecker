@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-29T20:36:16Z",
+  "generated": "2026-10-07T23:45:29Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
-      "app_version": "v3.18.1",
+      "app_version": "v3.19.0",
       "arch": "amd64",
-      "generated": "2026-09-29T20:35:01Z",
+      "generated": "2026-10-07T23:44:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -42,7 +42,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-clibs",
-            "version": "15.1p2"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -56,7 +56,7 @@
               "BSD-3-Clause"
             ],
             "name": "FreeBSD-dhclient",
-            "version": "15.1"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -91,7 +91,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-libcasper",
-            "version": "15.1"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -154,7 +154,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-openssl-lib",
-            "version": "15.1p3"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p3"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -210,7 +210,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-utilities",
-            "version": "15.1p2"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -238,7 +238,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p2"
+            "version": "15.1p4"
           },
           {
             "licenses": [
@@ -844,7 +844,7 @@
           {
             "name": "github.com/bmatcuk/doublestar/v4",
             "purl": "",
-            "version": "v4.10.0"
+            "version": "v4.10.2"
           },
           {
             "name": "github.com/catppuccin/go",
@@ -854,7 +854,7 @@
           {
             "name": "github.com/cenkalti/backoff/v7",
             "purl": "",
-            "version": "v7.0.0"
+            "version": "v7.0.1"
           },
           {
             "name": "github.com/cespare/xxhash/v2",
@@ -1054,7 +1054,7 @@
           {
             "name": "github.com/docker/cli",
             "purl": "",
-            "version": "v29.8.0+incompatible"
+            "version": "v29.8.2+incompatible"
           },
           {
             "name": "github.com/docker/distribution",
@@ -1099,7 +1099,7 @@
           {
             "name": "github.com/dunglas/httpsfv",
             "purl": "",
-            "version": "v1.1.1"
+            "version": "v1.1.2"
           },
           {
             "name": "github.com/dustin/go-humanize",
@@ -1372,9 +1372,9 @@
             "version": "v0.20.6"
           },
           {
-            "name": "github.com/google/go-github/v91",
+            "name": "github.com/google/go-github/v92",
             "purl": "",
-            "version": "v91.0.0"
+            "version": "v92.0.0"
           },
           {
             "name": "github.com/google/go-intervals",
@@ -1542,54 +1542,19 @@
             "version": "v1.5.0"
           },
           {
-            "name": "github.com/lestrrat-go/blackmagic",
-            "purl": "",
-            "version": "v1.0.4"
-          },
-          {
             "name": "github.com/lestrrat-go/dsig",
             "purl": "",
             "version": "v1.4.0"
           },
           {
-            "name": "github.com/lestrrat-go/httpcc",
+            "name": "github.com/lestrrat-go/jwx/v4",
             "purl": "",
-            "version": "v1.0.1"
+            "version": "v4.5.0"
           },
           {
-            "name": "github.com/lestrrat-go/httprc",
+            "name": "github.com/lestrrat-go/option/v3",
             "purl": "",
-            "version": "v1.0.6"
-          },
-          {
-            "name": "github.com/lestrrat-go/httprc/v3",
-            "purl": "",
-            "version": "v3.0.1"
-          },
-          {
-            "name": "github.com/lestrrat-go/iter",
-            "purl": "",
-            "version": "v1.0.2"
-          },
-          {
-            "name": "github.com/lestrrat-go/jwx/v2",
-            "purl": "",
-            "version": "v2.1.2"
-          },
-          {
-            "name": "github.com/lestrrat-go/jwx/v3",
-            "purl": "",
-            "version": "v3.0.12"
-          },
-          {
-            "name": "github.com/lestrrat-go/option",
-            "purl": "",
-            "version": "v1.0.1"
-          },
-          {
-            "name": "github.com/lestrrat-go/option/v2",
-            "purl": "",
-            "version": "v2.0.0"
+            "version": "v3.0.0-alpha1"
           },
           {
             "name": "github.com/letsencrypt/boulder",
@@ -1669,12 +1634,12 @@
           {
             "name": "github.com/moby/moby/api",
             "purl": "",
-            "version": "v1.56.0"
+            "version": "v1.56.1"
           },
           {
             "name": "github.com/moby/moby/client",
             "purl": "",
-            "version": "v0.6.0"
+            "version": "v0.6.1"
           },
           {
             "name": "github.com/moby/patternmatcher",
@@ -2014,7 +1979,7 @@
           {
             "name": "github.com/urfave/cli/v3",
             "purl": "",
-            "version": "v3.13.0"
+            "version": "v3.14.0"
           },
           {
             "name": "github.com/valyala/fastjson",
@@ -2034,7 +1999,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20260926045638-9f258841b3d2"
+            "version": "v0.0.0-20261006202002-26e9fa3c25a4"
           },
           {
             "name": "github.com/x448/float16",
@@ -2064,7 +2029,7 @@
           {
             "name": "github.com/yaronf/httpsign",
             "purl": "",
-            "version": "v0.5.2"
+            "version": "v0.6.2"
           },
           {
             "name": "github.com/zalando/go-keyring",
@@ -2072,9 +2037,9 @@
             "version": "v0.2.8"
           },
           {
-            "name": "gitlab.com/gitlab-org/api/client-go/v2",
+            "name": "gitlab.com/gitlab-org/api/client-go/v3",
             "purl": "",
-            "version": "v2.64.0"
+            "version": "v3.16.0"
           },
           {
             "name": "go.etcd.io/bbolt",
@@ -2139,7 +2104,7 @@
           {
             "name": "go.woodpecker-ci.org/woodpecker/v3",
             "purl": "",
-            "version": "v3.18.1"
+            "version": "v3.19.0"
           },
           {
             "name": "go.yaml.in/yaml/v2",
@@ -2164,7 +2129,7 @@
           {
             "name": "golang.org/x/image",
             "purl": "",
-            "version": "v0.45.0"
+            "version": "v0.46.0"
           },
           {
             "name": "golang.org/x/mod",
@@ -2254,17 +2219,17 @@
           {
             "name": "k8s.io/api",
             "purl": "",
-            "version": "v0.37.0"
+            "version": "v0.37.1"
           },
           {
             "name": "k8s.io/apimachinery",
             "purl": "",
-            "version": "v0.37.0"
+            "version": "v0.37.1"
           },
           {
             "name": "k8s.io/client-go",
             "purl": "",
-            "version": "v0.37.0"
+            "version": "v0.37.1"
           },
           {
             "name": "k8s.io/klog/v2",
@@ -2329,7 +2294,7 @@
           {
             "name": "xorm.io/xorm",
             "purl": "",
-            "version": "v1.4.1"
+            "version": "v1.4.3"
           }
         ],
         "java": [],
@@ -2405,14 +2370,14 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 98,
-        "go": 322,
+        "go": 315,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 2,
         "ruby": 0,
         "rust": 10,
-        "total": 432
+        "total": 425
       }
     }
   }
