@@ -33,7 +33,9 @@ x-daemonless:
 
   docs:
     env:
-      WOODPECKER_HOST: "The external URL of this server, e.g. https://ci.example.com"
+      WOODPECKER_HOST:
+        desc: "The external URL of this server, e.g. https://ci.example.com"
+        public_url: true
       WOODPECKER_AGENT_SECRET: "Shared secret for server-agent communication"
       SERVER_DATA_LOCATION: "Path to store the server's data (database, logs)"
       AGENT_DATA_LOCATION: "Path to store the agent's data"
