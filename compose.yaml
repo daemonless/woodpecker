@@ -10,9 +10,19 @@ x-daemonless:
   user: "bsd"
   mlock: false
   upstream_binary: true
+  # The server is the one people open; the agent stays on the stack's
+  # private network and finds the server by the name fjord puts in
+  # WOODPECKER_SERVER_HOSTNAME (localhost on host networking). The server
+  # service is named after the app because the AppJail bundle names its main
+  # jail that way, and fjord refuses a network plan naming a service the
+  # bundle does not have.
+  networking:
+    woodpecker: default
+    "*": private
+  hostnames:
+    woodpecker: WOODPECKER_SERVER_HOSTNAME
   # The agent is a second jail from the same image in the AppJail director
-  # bundle; host networking so it reaches the server's GRPC port on
-  # localhost, as under podman.
+  # bundle, named as its service is.
   appjail:
     director:
       options:
@@ -23,7 +33,7 @@ x-daemonless:
         image: ghcr.io/daemonless/woodpecker:latest
         env:
           WOODPECKER_AGENT_ENABLE: "true"
-          WOODPECKER_SERVER: localhost:9000
+          WOODPECKER_SERVER: "!ENV '${WOODPECKER_SERVER_HOSTNAME:localhost}:9000'"
           WOODPECKER_AGENT_SECRET: "!ENV '${WOODPECKER_AGENT_SECRET}'"
           PUID: "1000"
           PGID: "1000"
@@ -37,6 +47,10 @@ x-daemonless:
         desc: "The external URL of this server, e.g. https://ci.example.com"
         public_url: true
       WOODPECKER_AGENT_SECRET: "Shared secret for server-agent communication"
+      WOODPECKER_SERVER_HOSTNAME:
+        desc: "Where the agent finds the server (fjord sets this; localhost on host networking)"
+        level: advanced
+        optional: true
       SERVER_DATA_LOCATION: "Path to store the server's data (database, logs)"
       AGENT_DATA_LOCATION: "Path to store the agent's data"
       TZ:
@@ -55,7 +69,7 @@ x-daemonless:
       9000: "GRPC (Server/Agent communication)"
 
 services:
-  woodpecker-server:
+  woodpecker:
     image: ghcr.io/daemonless/woodpecker:latest
     container_name: woodpecker-server
     restart: unless-stopped
@@ -83,10 +97,10 @@ services:
     restart: unless-stopped
     network_mode: host
     depends_on:
-      - woodpecker-server
+      - woodpecker
     environment:
       - WOODPECKER_AGENT_ENABLE=true
-      - WOODPECKER_SERVER=localhost:9000
+      - WOODPECKER_SERVER=${WOODPECKER_SERVER_HOSTNAME:-localhost}:9000
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
       - PUID=1000
       - PGID=1000
