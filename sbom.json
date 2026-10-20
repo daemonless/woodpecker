@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-09T11:02:42Z",
+  "generated": "2026-10-20T22:39:20Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.19.0",
       "arch": "amd64",
-      "generated": "2026-10-09T11:01:13Z",
+      "generated": "2026-10-20T22:38:04Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -238,7 +238,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -259,21 +259,21 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "conmon",
-            "version": "2.2.1_7"
+            "version": "2.2.1_9"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "containernetworking-plugins",
-            "version": "0.6_17"
+            "version": "0.6_19"
           },
           {
             "licenses": [
@@ -301,14 +301,14 @@
               "MIT"
             ],
             "name": "expat",
-            "version": "2.8.2"
+            "version": "2.8.4"
           },
           {
             "licenses": [
               "GPLv3+"
             ],
             "name": "gawk",
-            "version": "5.4.0"
+            "version": "5.4.1_1"
           },
           {
             "licenses": [
@@ -323,21 +323,21 @@
               "GPLv2"
             ],
             "name": "git",
-            "version": "2.54.0"
+            "version": "2.56.0"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "git-lfs",
-            "version": "3.6.1_21"
+            "version": "3.6.1_23"
           },
           {
             "licenses": [
               "LGPL20"
             ],
             "name": "glib",
-            "version": "2.86.4,2"
+            "version": "2.88.3,2"
           },
           {
             "licenses": [
@@ -359,7 +359,7 @@
               "GPLv3"
             ],
             "name": "gnupg",
-            "version": "2.5.20_1"
+            "version": "2.5.21"
           },
           {
             "licenses": [
@@ -417,7 +417,7 @@
               "MIT"
             ],
             "name": "libffi",
-            "version": "3.6.0"
+            "version": "3.8.0"
           },
           {
             "licenses": [
@@ -425,7 +425,7 @@
               "GPLv2+"
             ],
             "name": "libgcrypt",
-            "version": "1.12.2"
+            "version": "1.12.4"
           },
           {
             "licenses": [
@@ -456,7 +456,7 @@
               "GPLv3"
             ],
             "name": "libksba",
-            "version": "1.8.0"
+            "version": "1.8.1"
           },
           {
             "licenses": [
@@ -471,14 +471,14 @@
               "MIT"
             ],
             "name": "libnghttp2",
-            "version": "1.69.0"
+            "version": "1.70.0"
           },
           {
             "licenses": [
               "MIT"
             ],
             "name": "libpsl",
-            "version": "0.22.0"
+            "version": "0.23.3"
           },
           {
             "licenses": [
@@ -531,7 +531,7 @@
               "BSD2CLAUSE"
             ],
             "name": "ocijail",
-            "version": "0.6.0"
+            "version": "0.6.1"
           },
           {
             "licenses": [
@@ -545,7 +545,7 @@
               "BSD3CLAUSE"
             ],
             "name": "p11-kit",
-            "version": "0.26.2"
+            "version": "0.26.5_1"
           },
           {
             "licenses": [
@@ -553,7 +553,7 @@
               "GPLv1+"
             ],
             "name": "p5-Authen-SASL",
-            "version": "2.1900"
+            "version": "2.2100"
           },
           {
             "licenses": [
@@ -561,7 +561,7 @@
               "GPLv1+"
             ],
             "name": "p5-Crypt-URandom",
-            "version": "0.54"
+            "version": "0.55"
           },
           {
             "licenses": [
@@ -630,7 +630,7 @@
               "BSD3CLAUSE"
             ],
             "name": "pcre2",
-            "version": "10.47_1"
+            "version": "10.49"
           },
           {
             "licenses": [
@@ -659,14 +659,14 @@
               "BSD2CLAUSE"
             ],
             "name": "pkg",
-            "version": "2.7.5"
+            "version": "2.8.4"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "podman",
-            "version": "5.8.4_3"
+            "version": "5.8.6_3"
           },
           {
             "licenses": [
@@ -674,21 +674,21 @@
               "APACHE20"
             ],
             "name": "py312-packaging",
-            "version": "26.2"
+            "version": "26.3"
           },
           {
             "licenses": [
               "PSFL"
             ],
             "name": "python312",
-            "version": "3.12.14"
+            "version": "3.12.15"
           },
           {
             "licenses": [
               "GPLv3"
             ],
             "name": "readline",
-            "version": "8.3.3"
+            "version": "8.3.6"
           },
           {
             "licenses": [
@@ -709,7 +709,7 @@
               "PD"
             ],
             "name": "sqlite3",
-            "version": "3.53.3,1"
+            "version": "3.53.4,1"
           },
           {
             "licenses": [
@@ -1999,7 +1999,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20261009021404-cc0e455309ea"
+            "version": "v0.0.0-20261020003002-9a2df961fa07"
           },
           {
             "name": "github.com/x448/float16",
@@ -2274,7 +2274,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.25.14"
+            "version": "v1.26.9"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
@@ -2309,7 +2309,7 @@
           {
             "name": "packaging",
             "purl": "",
-            "version": "26.2"
+            "version": "26.3"
           }
         ],
         "ruby": [],

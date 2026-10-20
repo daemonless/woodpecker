@@ -27,7 +27,7 @@ Lightweight CI/CD pipeline server with a built-in agent — integrates with Gite
 
 | Service | Image | Role | |
 |---|---|---|---|
-| **woodpecker-server** | `ghcr.io/daemonless/woodpecker:latest` |  | [docs](https://github.com/daemonless/woodpecker) |
+| **woodpecker** | `ghcr.io/daemonless/woodpecker:latest` |  | [docs](https://github.com/daemonless/woodpecker) |
 | **woodpecker-agent** | `ghcr.io/daemonless/woodpecker:latest` |  | [docs](https://github.com/daemonless/woodpecker) |
 
 ## Prerequisites
@@ -65,7 +65,7 @@ AGENT_DATA_LOCATION=/containers/woodpecker/agent
 name: woodpecker
 
 services:
-  woodpecker-server:
+  woodpecker:
     image: ghcr.io/daemonless/woodpecker:latest
     container_name: woodpecker-server
     restart: unless-stopped
@@ -93,10 +93,10 @@ services:
     restart: unless-stopped
     network_mode: host
     depends_on:
-      - woodpecker-server
+      - woodpecker
     environment:
       - WOODPECKER_AGENT_ENABLE=true
-      - WOODPECKER_SERVER=localhost:9000
+      - WOODPECKER_SERVER=${WOODPECKER_SERVER_HOSTNAME:-localhost}:9000
       - WOODPECKER_AGENT_SECRET=${WOODPECKER_AGENT_SECRET}
       - PUID=1000
       - PGID=1000
@@ -124,9 +124,6 @@ PGID=1000
 TZ=UTC
 SERVER_DATA_LOCATION=/containers/woodpecker/server
 AGENT_DATA_LOCATION=/containers/woodpecker/agent
-WOODPECKER_AGENT_ENABLE=
-WOODPECKER_GITEA=
-WOODPECKER_GITEA_URL=
 ```
 
 **appjail-director.yml**:
@@ -142,8 +139,6 @@ services:
     name: woodpecker
     options:
       - container: 'args:--pull'
-      - expose: '8000:8000 proto:tcp'
-      - expose: '9000:9000 proto:tcp'
     oci:
       user: root
       environment:
@@ -157,9 +152,6 @@ services:
         - TZ: !ENV '${TZ}'
         - SERVER_DATA_LOCATION: !ENV '${SERVER_DATA_LOCATION}'
         - AGENT_DATA_LOCATION: !ENV '${AGENT_DATA_LOCATION}'
-        - WOODPECKER_AGENT_ENABLE: !ENV '${WOODPECKER_AGENT_ENABLE}'
-        - WOODPECKER_GITEA: !ENV '${WOODPECKER_GITEA}'
-        - WOODPECKER_GITEA_URL: !ENV '${WOODPECKER_GITEA_URL}'
     volumes:
       - woodpecker: /config
   woodpecker-agent:
@@ -170,7 +162,7 @@ services:
     oci:
       environment:
         - WOODPECKER_AGENT_ENABLE: "true"
-        - WOODPECKER_SERVER: "localhost:9000"
+        - WOODPECKER_SERVER: !ENV '${WOODPECKER_SERVER_HOSTNAME:localhost}:9000'
         - WOODPECKER_AGENT_SECRET: !ENV '${WOODPECKER_AGENT_SECRET}'
         - PUID: "1000"
         - PGID: "1000"
@@ -220,6 +212,7 @@ Access at: `http://localhost:8000`
 | `PUID` | `1000` |  |
 | `PGID` | `1000` |  |
 | `TZ` | `UTC` | Timezone for the containers |
+| `WOODPECKER_SERVER_HOSTNAME` | `` | Where the agent finds the server (fjord sets this; localhost on host networking) |
 | `SERVER_DATA_LOCATION` | `/containers/woodpecker/server` | Path to store the server's data (database, logs) |
 | `AGENT_DATA_LOCATION` | `/containers/woodpecker/agent` | Path to store the agent's data |
 | `WOODPECKER_AGENT_ENABLE` | `` | Enable Woodpecker Agent (true/false) |
