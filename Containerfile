@@ -9,7 +9,7 @@
 
 # Stage 1: Build the frontend (Web UI)
 ARG BASE_VERSION=15.1
-FROM ghcr.io/daemonless/base:${BASE_VERSION} AS frontend-builder
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION} AS frontend-builder
 RUN pkg update && pkg install -y node22 npm-node22 git ca_root_nss
 ARG VERSION=latest
 RUN if [ "$VERSION" = "latest" ]; then \
@@ -29,7 +29,7 @@ RUN PNPM_VERSION=$(jq -r '.packageManager' package.json | sed 's/^pnpm@//; s/+.*
     pnpm --pm-on-fail=ignore build
 
 # Stage 2: Build the backend (Server, Agent, CLI, plugin-git)
-FROM ghcr.io/daemonless/base:${BASE_VERSION} AS backend-builder
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION} AS backend-builder
 RUN pkg update && pkg install -y go126 git ca_root_nss sqlite3 \
     FreeBSD-clang FreeBSD-clang-dev FreeBSD-clibs-dev FreeBSD-runtime-dev \
     FreeBSD-audit-dev
@@ -51,7 +51,7 @@ RUN git clone --depth 1 https://github.com/woodpecker-ci/plugin-git.git /plugin-
     /usr/local/bin/go126 build -o /bin/plugin-git
 
 # Stage 3: Final Runtime
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-rcd:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PACKAGES="ca_root_nss git sqlite3 podman gsed gawk gnugrep git-lfs"
@@ -101,9 +101,7 @@ RUN chmod 755 /usr/local/bin/woodpecker-server /usr/local/bin/woodpecker-agent /
 ENV WOODPECKER_BACKEND_LOCAL_CLONE=/usr/local/bin/plugin-git
 
 COPY root/ /
-
-# Make scripts executable
-RUN chmod +x /etc/services.d/*/run /etc/cont-init.d/* 2>/dev/null || true
+RUN chmod +x /daemonless/libexec/* /daemonless/init.d/*
 
 # --- Expose (Injected by Generator) ---
 EXPOSE 8000 9000

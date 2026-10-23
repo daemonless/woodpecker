@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Only run if WOODPECKER_SERVER_ENABLE is set to true
+if [ "${WOODPECKER_SERVER_ENABLE}" != "true" ]; then
+    echo "Woodpecker Server disabled."
+    # Disabled: idle (an exit would be restarted). FreeBSD sleep has no "infinity".
+    exec sleep 2147483647
+fi
+
+echo "Starting Woodpecker Server..."
+export HOME=/config
+export WOODPECKER_SERVER_ADDR=:8000
+
+cd /config
+exec dsu bsd /usr/local/bin/woodpecker-server

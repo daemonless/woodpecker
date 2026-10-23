@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Only run if WOODPECKER_AGENT_ENABLE is set to true
+if [ "${WOODPECKER_AGENT_ENABLE}" != "true" ]; then
+    echo "Woodpecker Agent disabled."
+    # Disabled: idle (an exit would be restarted). FreeBSD sleep has no "infinity".
+    exec sleep 2147483647
+fi
+
+echo "Starting Woodpecker Agent..."
+exec dsu bsd /usr/local/bin/woodpecker-agent 2>&1
