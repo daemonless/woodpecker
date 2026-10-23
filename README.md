@@ -195,8 +195,7 @@ Save the files above, then run `appjail-director up`.
 > Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
 >
 > To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
-
-Access at: `http://localhost:8000`
+Open `http://<server>:8000` from another machine (the server's own browser can't use a published port).
 
 ## Parameters
 

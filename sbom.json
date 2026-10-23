@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-20T22:39:20Z",
+  "generated": "2026-10-23T16:58:09Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.19.0",
       "arch": "amd64",
-      "generated": "2026-10-20T22:38:04Z",
+      "generated": "2026-10-23T16:55:16Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -174,13 +174,6 @@
             "licenses": [
               "BSD2CLAUSE"
             ],
-            "name": "FreeBSD-rc",
-            "version": "15.1"
-          },
-          {
-            "licenses": [
-              "BSD2CLAUSE"
-            ],
             "name": "FreeBSD-resolvconf",
             "version": "15.1"
           },
@@ -288,13 +281,6 @@
             ],
             "name": "curl",
             "version": "8.22.0"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "execline",
-            "version": "2.9.8.1"
           },
           {
             "licenses": [
@@ -689,20 +675,6 @@
             ],
             "name": "readline",
             "version": "8.3.6"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "s6",
-            "version": "2.14.0.1"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "skalibs",
-            "version": "2.14.5.1"
           },
           {
             "licenses": [
@@ -1999,7 +1971,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20261020003002-9a2df961fa07"
+            "version": "v0.0.0-20261021021228-f37fd5c841dd"
           },
           {
             "name": "github.com/x448/float16",
@@ -2369,7 +2341,7 @@
       "source": "upstream",
       "summary": {
         "dotnet": 0,
-        "freebsd": 98,
+        "freebsd": 94,
         "go": 315,
         "java": 0,
         "node": 0,
@@ -2377,7 +2349,7 @@
         "python": 2,
         "ruby": 0,
         "rust": 10,
-        "total": 425
+        "total": 421
       }
     }
   }
