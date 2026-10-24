@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T16:58:09Z",
+  "generated": "2026-10-24T09:06:10Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.19.0",
       "arch": "amd64",
-      "generated": "2026-10-23T16:55:16Z",
+      "generated": "2026-10-24T09:05:00Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -252,21 +252,21 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.131.1"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "conmon",
-            "version": "2.2.1_9"
+            "version": "2.2.1_10"
           },
           {
             "licenses": [
               "APACHE20"
             ],
             "name": "containernetworking-plugins",
-            "version": "0.6_19"
+            "version": "0.6_20"
           },
           {
             "licenses": [
@@ -280,7 +280,7 @@
               "MIT"
             ],
             "name": "curl",
-            "version": "8.22.0"
+            "version": "8.23.0"
           },
           {
             "licenses": [
@@ -316,7 +316,7 @@
               "MIT"
             ],
             "name": "git-lfs",
-            "version": "3.6.1_23"
+            "version": "3.6.1_24"
           },
           {
             "licenses": [
@@ -652,7 +652,7 @@
               "APACHE20"
             ],
             "name": "podman",
-            "version": "5.8.6_3"
+            "version": "5.8.6_4"
           },
           {
             "licenses": [
@@ -1971,7 +1971,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20261021021228-f37fd5c841dd"
+            "version": "v0.0.0-20261024005508-bb895dca4ba2"
           },
           {
             "name": "github.com/x448/float16",
@@ -2246,7 +2246,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.9"
+            "version": "v1.26.10"
           },
           {
             "name": "tags.cncf.io/container-device-interface",
