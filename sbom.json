@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-28T23:25:18Z",
+  "generated": "2026-10-29T22:11:51Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
-      "app_version": "v3.20.0",
+      "app_version": "v3.20.1",
       "arch": "amd64",
-      "generated": "2026-10-28T23:24:07Z",
+      "generated": "2026-10-29T22:10:41Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -182,7 +182,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -1062,6 +1062,11 @@
             "name": "github.com/dpotapov/go-spnego",
             "purl": "",
             "version": "v0.0.0-20210315154721-298b63a54430"
+          },
+          {
+            "name": "github.com/drone/envsubst",
+            "purl": "",
+            "version": "v1.0.3"
           },
           {
             "name": "github.com/dunglas/httpsfv",
@@ -1964,11 +1969,6 @@
             "version": "v8.10.2"
           },
           {
-            "name": "github.com/woodpecker-ci/envsubst",
-            "purl": "",
-            "version": "v1.2.0"
-          },
-          {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
             "version": "v0.0.0-20261028003017-b1a9cf264102"
@@ -2011,7 +2011,7 @@
           {
             "name": "gitlab.com/gitlab-org/api/client-go/v3",
             "purl": "",
-            "version": "v3.39.1"
+            "version": "v3.39.2"
           },
           {
             "name": "go.etcd.io/bbolt",
@@ -2076,7 +2076,7 @@
           {
             "name": "go.woodpecker-ci.org/woodpecker/v3",
             "purl": "",
-            "version": "v3.20.0"
+            "version": "v3.20.1"
           },
           {
             "name": "go.yaml.in/yaml/v2",
@@ -2191,17 +2191,17 @@
           {
             "name": "k8s.io/api",
             "purl": "",
-            "version": "v0.37.1"
+            "version": "v0.37.2"
           },
           {
             "name": "k8s.io/apimachinery",
             "purl": "",
-            "version": "v0.37.1"
+            "version": "v0.37.2"
           },
           {
             "name": "k8s.io/client-go",
             "purl": "",
-            "version": "v0.37.1"
+            "version": "v0.37.2"
           },
           {
             "name": "k8s.io/klog/v2",
