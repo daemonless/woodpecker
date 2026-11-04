@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-29T22:11:51Z",
+  "generated": "2026-11-04T15:34:45Z",
   "image": "woodpecker",
   "tags": {
     "latest": {
       "app_version": "v3.20.1",
       "arch": "amd64",
-      "generated": "2026-10-29T22:10:41Z",
+      "generated": "2026-11-04T15:33:29Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -287,7 +287,7 @@
               "MIT"
             ],
             "name": "expat",
-            "version": "2.8.4"
+            "version": "2.9.0"
           },
           {
             "licenses": [
@@ -345,7 +345,7 @@
               "GPLv3"
             ],
             "name": "gnupg",
-            "version": "2.5.21"
+            "version": "2.5.24"
           },
           {
             "licenses": [
@@ -681,7 +681,7 @@
               "PD"
             ],
             "name": "sqlite3",
-            "version": "3.53.4,1"
+            "version": "3.54.1,1"
           },
           {
             "licenses": [
@@ -1971,7 +1971,7 @@
           {
             "name": "github.com/woodpecker-ci/plugin-git",
             "purl": "",
-            "version": "v0.0.0-20261028003017-b1a9cf264102"
+            "version": "v0.0.0-20261104115553-42e7ecd84353"
           },
           {
             "name": "github.com/x448/float16",
